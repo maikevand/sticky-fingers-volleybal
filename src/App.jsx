@@ -1,10 +1,15 @@
-import './App.css'
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/home/Home.jsx';
 
 function App() {
 
   return (
     <>
-      <h1>Hier komt de Sticky Fingers Site</h1>
+      <Routes>
+          <Route path="/" element={<Home/>} />
+          {/*<Route path="*" element={<NotFound/>} />*/}
+      </Routes>
     </>
   )
 }
