@@ -7,7 +7,7 @@ function App() {
 
     return (
         <div className="page-layout">
-        <Navigation/>
+            <Navigation/>
             <main className="content-layout">
                 <Routes>
                     <Route path="/" element={<Home/>}/>

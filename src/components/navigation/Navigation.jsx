@@ -27,7 +27,7 @@ function Navigation() {
                     type="button"
                     className="nav-button"
                     text="Kom meespelen!"
-                    />
+                />
                 <UserIcon className="user-icon"/>
             </div>
         </nav>
