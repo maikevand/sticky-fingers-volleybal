@@ -1,12 +1,21 @@
-import './App.css'
+import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import Home from './pages/home/Home.jsx';
+import Navigation from "./components/navigation/Navigation.jsx";
 
 function App() {
 
-  return (
-    <>
-      <h1>Hier komt de Sticky Fingers Site</h1>
-    </>
-  )
+    return (
+        <div className="page-layout">
+        <Navigation/>
+            <main className="content-layout">
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    {/*<Route path="*" element={<NotFound/>} />*/}
+                </Routes>
+            </main>
+        </div>
+    )
 }
 
 export default App
