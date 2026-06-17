@@ -6,15 +6,15 @@ import Navigation from "./components/navigation/Navigation.jsx";
 function App() {
 
     return (
-        <>
-            <Navigation/>
-            <main>
+        <div className="page-layout">
+        <Navigation/>
+            <main className="content-layout">
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     {/*<Route path="*" element={<NotFound/>} />*/}
                 </Routes>
             </main>
-        </>
+        </div>
     )
 }
 

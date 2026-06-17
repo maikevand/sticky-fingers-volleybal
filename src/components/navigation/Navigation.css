@@ -17,7 +17,8 @@
 nav a.active {
     text-decoration: underline;
     text-decoration-color: var(--color-primary);
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.3rem;
     color: var(--color-white);
     font-weight: 500;
 }
@@ -41,7 +42,7 @@ nav a.active {
     gap: 1rem;
     font-size: 1.8rem;
     font-weight: 700;
-    border: 1px dotted red;
+    /*border: 1px dotted red;*/
 }
 
 .nav-links {
@@ -50,7 +51,7 @@ nav a.active {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px dotted yellow;
+    /*border: 1px dotted yellow;*/
 }
 
 .nav-actions {
