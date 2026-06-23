@@ -1,6 +1,7 @@
 import "./About.css"
 import Button from "../../components/button/Button.jsx";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
+import {Link} from "react-router-dom";
 
 function About() {
     return (
@@ -15,11 +16,13 @@ function About() {
                 club.</p>
             <p>We spelen op vrijdagavond van 20:00 tot 21:30 in gymzaal Eekbrouwersweg 2, 5233 VG
                 ‘s-Hertogenbosch.</p>
-            <Button
-                type="button"
-                className="contact-button"
-                text="Neem contact op"
-            />
+            <Link to="/contact">
+                <Button
+                    type="button"
+                    className="contact-button"
+                    text="Neem contact op"
+                />
+            </Link>
         </PageLayout>
     )
 }
