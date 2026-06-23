@@ -1,0 +1,8 @@
+input {
+    font: inherit;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}

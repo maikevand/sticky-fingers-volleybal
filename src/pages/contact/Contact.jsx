@@ -8,7 +8,7 @@ function Contact() {
         <PageLayout className="contact-page">
             <h1>Contact</h1>
             <p>Heb je vragen of wil je vrijblijvend een keer meespelen?
-                Je kunt contact met ons opnemen via onderstaand formulier.
+                Stuur ons een bericht via onderstaand formulier!
             </p>
             <form className="contact-form">
                 <FormField
