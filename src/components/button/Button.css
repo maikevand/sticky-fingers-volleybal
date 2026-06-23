@@ -1,6 +1,8 @@
-button {
+.button {
     background-color: var(--color-primary);
     border-radius: 15px;
     font-weight: 600;
+    color: var(--color-black);
+    font-family: inherit;
     padding: 0.5rem 0.5rem;
 }

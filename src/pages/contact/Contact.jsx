@@ -1,6 +1,7 @@
 import "./Contact.css"
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import Button from "../../components/button/Button.jsx"
+import FormField from "../../components/form-field/FormField.jsx";
 
 function Contact() {
     return (
@@ -10,26 +11,36 @@ function Contact() {
                 Je kunt contact met ons opnemen via onderstaand formulier.
             </p>
             <form className="contact-form">
-                <label for="name-field">
-                    Naam
-                    <input type="text" id="name-field" name="name" placeholder="Naam" />
-                </label>
-                <label for="email-field">
-                    E-mail
-                    <input type="email" id="email-field" name="email" placeholder="E-mail" />
-                </label>
-                <label for="telephone-field">
-                    Telefoonnummer
-                    <input type="tel" id="telephone-field" name="telephone" placeholder="Telefoonnummer" />
-                </label>
-                <label for="message-field">
+                <FormField
+                    htmlFor="name-field"
+                    text="Naam"
+                    type="text"
+                    id="name-field"
+                    name="name"
+                    placeholder="Naam"
+                />
+                <FormField
+                    htmlFor="email-field"
+                    text="E-mail"
+                    type="email"
+                    id="email-field"
+                    name="email"
+                    placeholder="E-mail"
+                    />
+                <FormField
+                    htmlFor="telephone-field"
+                    text="Telefoonnummer"
+                    type="tel"
+                    id="telephone-field"
+                    name="telephone"
+                    placeholder="Telefoonnummer"
+                    />
+                <label htmlFor="message-field">
                     Bericht
                     <textarea name="message" id="message-field" cols="30" rows="10" placeholder="Bericht"></textarea>
                 </label>
                 <Button
                 type="submit"
-                className="submit-button"
-                onClick="submit"
                 text="Verzenden"
                 />
             </form>
