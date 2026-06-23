@@ -15,9 +15,7 @@ function Navigation() {
             </div>
             <ul className="nav-links">
                 <li><NavLink to="/">Home</NavLink></li>
-                <li>
-                    Over ons
-                </li>
+                <li><NavLink to="/over-ons">Over ons</NavLink></li>
                 <li>
                     Voor leden
                 </li>

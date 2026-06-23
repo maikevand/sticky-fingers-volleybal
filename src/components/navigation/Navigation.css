@@ -17,7 +17,7 @@
 nav a.active {
     text-decoration: underline;
     text-decoration-color: var(--color-primary);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
     text-underline-offset: 0.3rem;
     color: var(--color-white);
     font-weight: 500;
