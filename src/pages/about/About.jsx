@@ -1,5 +1,4 @@
 import "./About.css"
-import Button from "../../components/button/Button.jsx";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import {Link} from "react-router-dom";
 

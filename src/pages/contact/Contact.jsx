@@ -17,7 +17,6 @@ function Contact() {
                     type="text"
                     id="name-field"
                     name="name"
-                    placeholder="Naam"
                 />
                 <FormField
                     htmlFor="email-field"
@@ -25,7 +24,6 @@ function Contact() {
                     type="email"
                     id="email-field"
                     name="email"
-                    placeholder="E-mail"
                     />
                 <FormField
                     htmlFor="telephone-field"
@@ -33,11 +31,10 @@ function Contact() {
                     type="tel"
                     id="telephone-field"
                     name="telephone"
-                    placeholder="Telefoonnummer"
                     />
                 <label htmlFor="message-field">
                     Bericht
-                    <textarea name="message" id="message-field" cols="30" rows="10" placeholder="Bericht"></textarea>
+                    <textarea name="message" id="message-field" cols="30" rows="10" placeholder="Stel hier je vraag of je verzoek wanneer je wil meespelen"></textarea>
                 </label>
                 <Button
                 type="submit"
