@@ -9,12 +9,12 @@
     color: var(--color-white);
 }
 
-.main-navigation a {
+.nav-links a {
     text-decoration: transparent;
     color: var(--color-white);
 }
 
-nav a.active {
+.nav-links a.active {
     text-decoration: underline;
     text-decoration-color: var(--color-primary);
     text-decoration-thickness: 2px;

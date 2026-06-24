@@ -11,7 +11,7 @@ function Home() {
                 </div>
             </div>
         </header>
-    )
+    );
 }
 
 export default Home;

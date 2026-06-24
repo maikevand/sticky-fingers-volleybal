@@ -1,9 +1,9 @@
 import "./Navigation.css";
 import {NavLink} from "react-router-dom";
-import Button from "../button/Button.jsx"
+import {Link} from "react-router-dom";
 // import {useNavigate} from "react-router-dom";
-import VolleyballIcon from "../../assets/volleyball-icon.svg?react"
-import UserIcon from "../../assets/user-icon.svg?react"
+import VolleyballIcon from "../../assets/volleyball-icon.svg?react";
+import UserIcon from "../../assets/user-icon.svg?react";
 
 function Navigation() {
     // const navigate = useNavigate();
@@ -21,11 +21,9 @@ function Navigation() {
                 </li>
             </ul>
             <div className="nav-actions">
-                <Button
-                    type="button"
-                    className="nav-button"
-                    text="Kom meespelen!"
-                />
+                <Link to="/contact" className="button">
+                    Kom meespelen!
+                </Link>
                 <UserIcon className="user-icon"/>
             </div>
         </nav>

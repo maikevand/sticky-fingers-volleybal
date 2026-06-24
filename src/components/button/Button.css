@@ -1,6 +1,12 @@
-button {
+.button {
     background-color: var(--color-primary);
     border-radius: 15px;
+    color: var(--color-black);
+    font: inherit;
     font-weight: 600;
-    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    width: auto;
+    align-self: center;
 }
