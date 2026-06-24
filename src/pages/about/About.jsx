@@ -1,4 +1,4 @@
-import "./About.css"
+import "./About.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import {Link} from "react-router-dom";
 
@@ -19,7 +19,7 @@ function About() {
                 Neem contact op
             </Link>
         </PageLayout>
-    )
+    );
 }
 
 export default About;

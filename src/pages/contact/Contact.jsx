@@ -1,4 +1,4 @@
-import "./Contact.css"
+import "./Contact.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import Button from "../../components/button/Button.jsx"
 import FormField from "../../components/form-field/FormField.jsx";
