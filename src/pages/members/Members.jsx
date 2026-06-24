@@ -2,6 +2,9 @@ import "./Members.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import LockIcon from "../../assets/lock-icon.svg?react";
 import Button from "../../components/button/Button.jsx";
+import MemberCard from "../../components/member-card/MemberCard.jsx";
+import CalendarIcon from "../../assets/calendar-icon.svg?react";
+import PollsIcon from "../../assets/polls-icon.svg?react";
 
 function Members() {
     return (
@@ -18,6 +21,20 @@ function Members() {
                     text="Inloggen"
                 />
             </section>
+
+            <section className="member-cards-section">
+                <MemberCard
+                    title="Speeldata"
+                    Icon={CalendarIcon}
+                    buttonText="Log eerst in"
+                    />
+                <MemberCard
+                title="Peilingen"
+                Icon={PollsIcon}
+                buttonText="Log eerst in"
+                />
+            </section>
+
         </PageLayout>
     );
 }
