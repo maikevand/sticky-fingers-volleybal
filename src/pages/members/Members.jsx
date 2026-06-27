@@ -27,11 +27,13 @@ function Members() {
                     title="Speeldata"
                     Icon={CalendarIcon}
                     buttonText="Log eerst in"
+                    disabled
                     />
                 <MemberCard
                 title="Peilingen"
                 Icon={PollsIcon}
                 buttonText="Log eerst in"
+                disabled
                 />
             </section>
 

@@ -1,7 +1,7 @@
 import "./MemberCard.css";
 import Button from "../button/Button.jsx";
 
-function MemberCard({title, buttonText, Icon}) {
+function MemberCard({title, buttonText, Icon, disabled = false}) {
     return (
         <section className="member-card">
             <h2>{title}</h2>
@@ -11,6 +11,7 @@ function MemberCard({title, buttonText, Icon}) {
             <Button
                 type="button"
                 text={buttonText}
+                disabled={disabled}
             />
         </section>
     );
