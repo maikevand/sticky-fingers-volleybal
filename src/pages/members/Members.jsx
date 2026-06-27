@@ -13,8 +13,8 @@ function Members() {
             <section className="members-intro">
                 <LockIcon className="lock-icon"/>
                 <div>
-                <p>Dit deel is alleen voor leden.</p>
-                <p>Log in om speeldata en polls te bekijken.</p>
+                    <p>Dit deel is alleen voor leden.</p>
+                    <p>Log in om speeldata en polls te bekijken.</p>
                 </div>
                 <Button
                     type="button"
@@ -24,16 +24,14 @@ function Members() {
 
             <section className="member-cards-section">
                 <MemberCard
-                    title="Speeldata"
                     Icon={CalendarIcon}
                     buttonText="Log eerst in"
                     disabled
-                    />
+                />
                 <MemberCard
-                title="Peilingen"
-                Icon={PollsIcon}
-                buttonText="Log eerst in"
-                disabled
+                    Icon={PollsIcon}
+                    buttonText="Log eerst in"
+                    disabled
                 />
             </section>
 
