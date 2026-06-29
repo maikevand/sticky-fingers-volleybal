@@ -14,7 +14,7 @@ function Members() {
                 <LockIcon className="lock-icon"/>
                 <div>
                     <p>Dit deel is alleen voor leden.</p>
-                    <p>Log in om speeldata en polls te bekijken.</p>
+                    <p>Log in om speeldata en peilingen te bekijken.</p>
                 </div>
                 <Button
                     type="button"
