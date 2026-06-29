@@ -4,23 +4,24 @@ import Button from "../../components/button/Button.jsx";
 import PollCard from "../../components/poll-card/PollCard.jsx";
 
 function Polls() {
-        const options = [
-            {
-                id: 1,
-                answer: "Ja, gezellig!",
-                votes: 8,
-            },
-            {
-                id: 2,
-                answer: "Nee, ik kan niet",
-                votes: 3,
-            },
-        ];
+    const options = [
+        {
+            id: 1,
+            answer: "Ja, gezellig!",
+            votes: 8,
+        },
+        {
+            id: 2,
+            answer: "Nee, ik kan niet",
+            votes: 3,
+        },
+    ];
 
     return (
         <PageLayout className="polls-page">
             <div className="polls-title-section">
                 <h1>Peilingen</h1>
+                <p>Stem mee over onderwerpen binnen de club of maak zelf een nieuwe peiling aan.</p>
                 <Button
                     type="button"
                     text="Nieuwe peiling"

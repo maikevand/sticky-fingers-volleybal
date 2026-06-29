@@ -1,0 +1,19 @@
+.poll-options {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0.8rem;
+    gap: 0.8rem;
+}
+
+.poll-options li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.poll-answer-section {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
