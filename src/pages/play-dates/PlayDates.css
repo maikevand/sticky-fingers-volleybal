@@ -5,15 +5,20 @@ th {
     text-underline-offset: 0.25rem;
 }
 
-th,
-td {
+.play-dates-table th,
+.play-dates-table td {
     padding: 0.5rem 0;
+    text-align: left;
+}
+
+.play-dates-table th:first-child,
+.play-dates-table td:first-child {
+    padding-right: 2rem;
 }
 
 .attendance-options {
     display: flex;
     gap: 1rem;
-    margin-left: 2rem;
 }
 
 .attendance-options button {
@@ -22,6 +27,7 @@ td {
     font: inherit;
     font-weight: 600;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .attendance-selected {

@@ -7,7 +7,7 @@ function PlayDates() {
             <h1>Speeldata</h1>
             <p>📍 Gymzaal Eekbrouwersweg 2</p>
             <p>🕗 20:00-21:30</p>
-            <table>
+            <table className="play-dates-table">
                 <thead>
                 <tr>
                     <th>Datum</th>
