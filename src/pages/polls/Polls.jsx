@@ -7,12 +7,12 @@ function Polls() {
     const options = [
         {
             id: 1,
-            answer: "Ja, gezellig!",
+            answer: "Ja, gezellig! Ik wil wel meegaan met het etentje!",
             votes: 8,
         },
         {
             id: 2,
-            answer: "Nee, ik kan niet",
+            answer: "Nee, ik kan niet. En eigenlijk heb ik er ook helemaal geen zin in.",
             votes: 3,
         },
     ];
@@ -28,7 +28,7 @@ function Polls() {
                 />
             </div>
             <PollCard
-                title="Ga je mee uit eten 18 augustus?"
+                title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
                 options={options}
             />
         </PageLayout>

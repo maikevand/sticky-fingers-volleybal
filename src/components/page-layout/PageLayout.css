@@ -1,5 +1,6 @@
 .page-background {
     flex: 1;
+    min-height: 100vh;
     color: var(--color-white);
     background-image: linear-gradient(
             to bottom,
@@ -10,7 +11,7 @@
     ),
     url("../../assets/mobile-volleyball-background-without-logo.png");
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
 }
 

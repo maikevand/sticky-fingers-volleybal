@@ -5,19 +5,25 @@ function PollCard({title, options}) {
     return (
         <article className="poll-card">
                 <h2>{title}</h2>
+            <form className="poll-form">
                 <ul className="poll-options">
                     {options.map((option) => {
                         return (
                             <li key={option.id}>
                                 <input
                                     type="radio"
+                                    id={option.id}
                                     name="poll-answer"
                                     value={option.id}
                                 />
-                                <div className="poll-answer-section">
+
+                                <label
+                                    htmlFor={option.id}
+                                    className="poll-answer-section"
+                                    >
                                     <span>{option.answer}</span>
                                     <span>{option.votes} stemmen</span>
-                                </div>
+                                </label>
                             </li>
                         );
                     })}
@@ -26,6 +32,7 @@ function PollCard({title, options}) {
                 type="button"
                 text="Stem indienen"
             />
+            </form>
         </article>
     );
 }

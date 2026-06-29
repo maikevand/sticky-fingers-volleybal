@@ -15,5 +15,18 @@
 .poll-answer-section {
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
     flex: 1;
+}
+
+.poll-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.poll-card > button {
+    align-self: center;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
 }
