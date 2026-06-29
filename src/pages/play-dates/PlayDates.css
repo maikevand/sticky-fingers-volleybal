@@ -1,0 +1,35 @@
+th {
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25rem;
+}
+
+th,
+td {
+    padding: 0.5rem 0;
+}
+
+.attendance-options {
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+}
+
+.attendance-options button {
+    height: 2.5rem;
+    width: 2.5rem;
+    font: inherit;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.attendance-selected {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.attendance-inactive {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
