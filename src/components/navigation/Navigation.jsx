@@ -16,9 +16,7 @@ function Navigation() {
             <ul className="nav-links">
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/over-ons">Over ons</NavLink></li>
-                <li>
-                    Voor leden
-                </li>
+                <li><NavLink to="/voor-leden">Voor leden</NavLink></li>
             </ul>
             <div className="nav-actions">
                 <Link to="/contact" className="button">

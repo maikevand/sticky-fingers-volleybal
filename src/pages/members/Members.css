@@ -1,0 +1,32 @@
+.lock-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.member-card-icon {
+    width: 5rem;
+    height: 5rem;
+}
+
+.members-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.member-cards-section {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-secondary-light);
+}

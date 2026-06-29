@@ -10,3 +10,7 @@
     width: auto;
     align-self: center;
 }
+
+.button:disabled {
+    background-color: var(--color-secondary-light);
+}

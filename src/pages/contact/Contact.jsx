@@ -1,4 +1,4 @@
-import "./Contact.css"
+import "./Contact.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import Button from "../../components/button/Button.jsx"
 import FormField from "../../components/form-field/FormField.jsx";
@@ -24,21 +24,22 @@ function Contact() {
                     type="email"
                     id="email-field"
                     name="email"
-                    />
+                />
                 <FormField
                     htmlFor="telephone-field"
                     text="Telefoonnummer"
                     type="tel"
                     id="telephone-field"
                     name="telephone"
-                    />
+                />
                 <label htmlFor="message-field">
                     Bericht
-                    <textarea name="message" id="message-field" cols="30" rows="10" placeholder="Stel hier je vraag of je verzoek wanneer je wil meespelen"></textarea>
+                    <textarea name="message" id="message-field" cols="30" rows="10"
+                              placeholder="Stel hier je vraag of je verzoek wanneer je wil meespelen"></textarea>
                 </label>
                 <Button
-                type="submit"
-                text="Verzenden"
+                    type="submit"
+                    text="Verzenden"
                 />
             </form>
         </PageLayout>

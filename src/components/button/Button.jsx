@@ -1,12 +1,12 @@
 import "./Button.css"
 
-function Button({type, text, onClick}) {
+function Button({type, text, onClick, disabled = false}) {
     return (
         <button
             type={type}
             className="button"
-            onClick={onClick}>
-            {/*disabled={disabled}*/}
+            onClick={onClick}
+            disabled={disabled}>
             {/*ev. variant primary toevoegen voor verschillende opmaak? Zie uitwerkingen react blog part 2*/}
             {text}
         </button>

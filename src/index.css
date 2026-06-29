@@ -18,6 +18,7 @@
 :root {
     --color-primary: #E7D24B;
     --color-secondary: #1D1F3E;
+    --color-secondary-light: #8E9BC7;
     --color-white: #FFFFFF;
     --color-black: #000000;
 }
@@ -41,6 +42,17 @@ button {
 img {
     max-width: 100%;
     display: block;
+}
+
+.page-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-layout {
+    flex: 1;
+    display: flex;
 }
 
 /* ------------------------------- 2. Typography ----------------------------------- */
