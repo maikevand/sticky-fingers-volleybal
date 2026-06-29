@@ -1,8 +1,22 @@
 import "./Polls.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import Button from "../../components/button/Button.jsx";
+import PollCard from "../../components/poll-card/PollCard.jsx";
 
 function Polls() {
+        const options = [
+            {
+                id: 1,
+                answer: "Ja, gezellig!",
+                votes: 8,
+            },
+            {
+                id: 2,
+                answer: "Nee, ik kan niet",
+                votes: 3,
+            },
+        ];
+
     return (
         <PageLayout className="polls-page">
             <div className="polls-title-section">
@@ -12,6 +26,10 @@ function Polls() {
                     text="Nieuwe peiling"
                 />
             </div>
+            <PollCard
+                title="Ga je mee uit eten 18 augustus?"
+                options={options}
+            />
         </PageLayout>
     )
 }
