@@ -8,11 +8,14 @@ function PollCard({ title, options }) {
                 <h2>{title}</h2>
                 <ul>
                     {options.map((option) => {
-                        return <li key={option.id}>{option.answer}</li>
+                        return (
+                        <li key={option.id}>
+                            <span>{option.answer}</span>
+                            <span>{option.votes}</span>
+                        </li>
+                        );
                     })}
                 </ul>
-
-                {/*<p>{options[0].answer}</p>*/}
             </div>
             <Button
                 type="button"
