@@ -19,12 +19,12 @@
     flex: 1;
 }
 
-.poll-card {
+.poll-form {
     display: flex;
     flex-direction: column;
 }
 
-.poll-card > button {
+.poll-form > button {
     align-self: center;
     background-color: transparent;
     color: var(--color-primary);
