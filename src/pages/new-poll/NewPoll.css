@@ -1,0 +1,11 @@
+.new-poll-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.new-poll-form > :nth-last-child(2) {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}

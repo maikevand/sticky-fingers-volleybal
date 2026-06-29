@@ -1,7 +1,7 @@
 import "./Polls.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
-import Button from "../../components/button/Button.jsx";
 import PollCard from "../../components/poll-card/PollCard.jsx";
+import {Link} from "react-router-dom";
 
 function Polls() {
     const options = [
@@ -22,10 +22,9 @@ function Polls() {
             <div className="polls-title-section">
                 <h1>Peilingen</h1>
                 <p>Stem mee over onderwerpen binnen de club of maak zelf een nieuwe peiling aan.</p>
-                <Button
-                    type="button"
-                    text="Nieuwe peiling"
-                />
+                <Link to="/nieuwe-peiling" className="button">
+                    Nieuwe peiling
+                </Link>
             </div>
             <PollCard
                 title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
