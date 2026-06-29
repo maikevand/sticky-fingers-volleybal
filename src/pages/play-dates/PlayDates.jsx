@@ -12,6 +12,7 @@ function PlayDates() {
                 <tr>
                     <th>Datum</th>
                     <th>Aanwezig?</th>
+                    <th>Totaal</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,7 @@ function PlayDates() {
                         <button className="attendance-inactive" type="button">?</button>
                         </div>
                     </td>
+                    <td>5</td>
                 </tr>
                 </tbody>
             </table>

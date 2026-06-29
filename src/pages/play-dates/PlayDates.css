@@ -1,4 +1,4 @@
-th {
+.play-dates-table th {
     text-decoration: underline;
     text-decoration-color: var(--color-primary);
     text-decoration-thickness: 1px;
@@ -13,12 +13,17 @@ th {
 
 .play-dates-table th:first-child,
 .play-dates-table td:first-child {
-    padding-right: 2rem;
+    padding-right: 0.7rem;
+}
+
+.play-dates-table th:last-child,
+.play-dates-table td:last-child {
+    text-align: right;
 }
 
 .attendance-options {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .attendance-options button {
