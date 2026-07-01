@@ -15,27 +15,32 @@ function NewPoll() {
                 {/*    id="name-field"*/}
                 {/*    name="name"*/}
                 {/*/>*/}
+                <label htmlFor="poll-question-field" className="textarea-label">
+                    Vraag
+                    <textarea
+                        name="question"
+                        id="poll-question-field"
+                        cols="34"
+                        rows="2"
+                        maxLength="70"
+                        placeholder="Wie wil doorspelen in de kerstvakantie?">
+                    </textarea>
+                </label>
                 <FormField
-                    htmlFor="question-field"
-                    text="Vraag"
-                    type="text"
-                    id="question-field"
-                    name="question"
-                    placeholder="Wie wil doorspelen in de kerstvakantie?"
-                />
-                <FormField
-                    htmlFor="option1-field"
+                    htmlFor="poll-option1-field"
                     text="Antwoordoptie 1"
                     type="text"
-                    id="option1-field"
+                    id="poll-option1-field"
                     name="option1"
+                    maxLength="45"
                 />
                 <FormField
-                    htmlFor="option2-field"
+                    htmlFor="poll-option2-field"
                     text="Antwoordoptie 2"
                     type="text"
-                    id="option2-field"
+                    id="poll-option2-field"
                     name="option2"
+                    maxLength="45"
                 />
                 <Button
                     type="button"
