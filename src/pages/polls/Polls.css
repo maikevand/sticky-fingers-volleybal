@@ -1,0 +1,19 @@
+.polls-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgba(29, 31, 62, 0.9);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.polls-page .page-content {
+    background-color: transparent;
+    padding: 0;
+}
+
+.poll-card {
+    background-color: rgba(29, 31, 62, 0.9);
+    border-radius: 20px;
+    padding: 2rem;
+}

@@ -1,8 +1,8 @@
 import "./PageLayout.css"
 
-function PageLayout({children}) {
+function PageLayout({ children, className }) {
     return (
-        <section className="page-background">
+        <section className={`page-background ${className}`}>
             <div className="page-content">
                 {children}
             </div>

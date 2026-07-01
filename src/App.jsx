@@ -6,6 +6,8 @@ import About from "./pages/about/About.jsx";
 import Contact from "./pages/contact/Contact.jsx"
 import Members from "./pages/members/Members.jsx"
 import PlayDates from "./pages/play-dates/PlayDates.jsx";
+import Polls from "./pages/polls/Polls.jsx";
+import NewPoll from "./pages/new-poll/NewPoll.jsx";
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
                     <Route path="/contact" element={<Contact/>} />
                     <Route path="/voor-leden" element={<Members/>} />
                     <Route path="/speeldata" element={<PlayDates/>} />
+                    <Route path="/peilingen" element={<Polls/>} />
+                    <Route path="/nieuwe-peiling" element={<NewPoll/>} />
                     {/*<Route path="*" element={<NotFound/>} />*/}
                 </Routes>
             </main>

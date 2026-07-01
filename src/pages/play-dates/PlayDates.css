@@ -31,6 +31,7 @@
     width: 2.5rem;
     font: inherit;
     font-weight: 600;
+    align-items: center;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -41,6 +42,7 @@
 }
 
 .attendance-inactive {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
 }

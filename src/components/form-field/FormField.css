@@ -1,8 +1,11 @@
-input {
-    font: inherit;
-}
-
 .form-field {
     display: flex;
     flex-direction: column;
+    gap: 0.2rem;
+}
+
+.form-field input {
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.2rem;
 }
