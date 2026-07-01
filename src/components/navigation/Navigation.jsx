@@ -22,7 +22,9 @@ function Navigation() {
                 <Link to="/contact" className="button">
                     Kom meespelen!
                 </Link>
-                <UserIcon className="user-icon"/>
+                <Link to="/inloggen" aria-label="Inloggen">
+                    <UserIcon className="user-icon"/>
+                </Link>
             </div>
         </nav>
     );
