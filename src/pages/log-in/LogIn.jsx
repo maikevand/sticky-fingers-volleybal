@@ -2,6 +2,7 @@ import "./LogIn.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import FormField from "../../components/form-field/FormField.jsx";
 import Button from "../../components/button/Button.jsx";
+import {Link} from "react-router-dom";
 
 function LogIn() {
     return (
@@ -28,7 +29,7 @@ function LogIn() {
                     text="Inloggen"
                 />
             </form>
-            <p>Nog geen account? Klik HIER om je te registreren.</p>
+            <p>Nog geen account? Klik <Link className="register-link" to="/registreren">hier</Link> om je te registreren.</p>
         </PageLayout>
     );
 }

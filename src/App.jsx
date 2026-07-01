@@ -9,6 +9,7 @@ import PlayDates from "./pages/play-dates/PlayDates.jsx";
 import Polls from "./pages/polls/Polls.jsx";
 import NewPoll from "./pages/new-poll/NewPoll.jsx";
 import LogIn from "./pages/log-in/LogIn.jsx";
+import Register from "./pages/register/Register.jsx";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/peilingen" element={<Polls/>}/>
                     <Route path="/nieuwe-peiling" element={<NewPoll/>}/>
                     <Route path="/inloggen" element={<LogIn/>}/>
+                    <Route path="/registreren" element={<Register/>}/>
                     {/*<Route path="*" element={<NotFound/>} />*/}
                 </Routes>
             </main>

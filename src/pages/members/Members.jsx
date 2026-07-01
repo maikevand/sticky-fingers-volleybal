@@ -1,10 +1,10 @@
 import "./Members.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import LockIcon from "../../assets/lock-icon.svg?react";
-import Button from "../../components/button/Button.jsx";
 import MemberCard from "../../components/member-card/MemberCard.jsx";
 import CalendarIcon from "../../assets/calendar-icon.svg?react";
 import PollsIcon from "../../assets/polls-icon.svg?react";
+import {Link} from "react-router-dom";
 
 function Members() {
     return (
@@ -16,10 +16,9 @@ function Members() {
                     <p>Dit deel is alleen voor leden.</p>
                     <p>Log in om speeldata en peilingen te bekijken.</p>
                 </div>
-                <Button
-                    type="button"
-                    text="Inloggen"
-                />
+                <Link to="/inloggen" className="button">
+                    Inloggen
+                </Link>
             </section>
 
             <section className="member-cards-section">
