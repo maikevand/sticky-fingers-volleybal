@@ -1,0 +1,10 @@
+.user-data-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.user-data-section p {
+    display: flex;
+    flex-direction: column;
+}
