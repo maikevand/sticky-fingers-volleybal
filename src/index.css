@@ -66,11 +66,18 @@ h2 {
     font: inherit;
     font-size: 0.9rem;
     padding: 0.2rem;
+    border-radius: 5px;
 }
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
 /* --------------- 3.1 Reusables ----------------------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .textarea-label {
     display: flex;
     flex-direction: column;

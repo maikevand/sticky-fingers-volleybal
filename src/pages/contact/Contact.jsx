@@ -20,10 +20,10 @@ function Contact() {
                     maxLength="35"
                 />
                 <FormField
-                    htmlFor="email-field"
+                    htmlFor="contact-email-field"
                     text="E-mail"
                     type="email"
-                    id="email-field"
+                    id="contact-email-field"
                     name="email"
                     maxLength="50"
                 />
