@@ -8,6 +8,7 @@ import Members from "./pages/members/Members.jsx"
 import PlayDates from "./pages/play-dates/PlayDates.jsx";
 import Polls from "./pages/polls/Polls.jsx";
 import NewPoll from "./pages/new-poll/NewPoll.jsx";
+import LogIn from "./pages/log-in/LogIn.jsx";
 
 function App() {
 
@@ -16,13 +17,14 @@ function App() {
             <Navigation/>
             <main className="content-layout">
                 <Routes>
-                    <Route path="/" element={<Home/>} />
-                    <Route path="/over-ons" element={<About/>} />
-                    <Route path="/contact" element={<Contact/>} />
-                    <Route path="/voor-leden" element={<Members/>} />
-                    <Route path="/speeldata" element={<PlayDates/>} />
-                    <Route path="/peilingen" element={<Polls/>} />
-                    <Route path="/nieuwe-peiling" element={<NewPoll/>} />
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/over-ons" element={<About/>}/>
+                    <Route path="/contact" element={<Contact/>}/>
+                    <Route path="/voor-leden" element={<Members/>}/>
+                    <Route path="/speeldata" element={<PlayDates/>}/>
+                    <Route path="/peilingen" element={<Polls/>}/>
+                    <Route path="/nieuwe-peiling" element={<NewPoll/>}/>
+                    <Route path="/inloggen" element={<LogIn/>}/>
                     {/*<Route path="*" element={<NotFound/>} />*/}
                 </Routes>
             </main>
