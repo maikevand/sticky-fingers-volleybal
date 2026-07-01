@@ -11,6 +11,7 @@ import NewPoll from "./pages/new-poll/NewPoll.jsx";
 import LogIn from "./pages/log-in/LogIn.jsx";
 import Register from "./pages/register/Register.jsx";
 import Profile from "./pages/profile/Profile.jsx";
+import NotFound from "./pages/not-found/NotFound.jsx";
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
                     <Route path="/inloggen" element={<LogIn/>}/>
                     <Route path="/registreren" element={<Register/>}/>
                     <Route path="/profiel" element={<Profile/>}/>
-                    {/*<Route path="*" element={<NotFound/>} />*/}
+                    <Route path="*" element={<NotFound/>} />
                 </Routes>
             </main>
         </div>
