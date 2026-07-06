@@ -1,2 +1,15 @@
 
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.contact-page {
+        background-image:
+        url("../../assets/backgrounds/desktop-waving-woman-background.png");
+        background-size: cover;
+        background-position: center bottom;
+    }
 
+    .contact-page .page-content {
+        margin-left: 15%;
+        margin-top: 4rem;
+    }
+}
