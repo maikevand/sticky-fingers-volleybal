@@ -1,3 +1,22 @@
 .register-link {
     color:var(--color-white);
 }
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.log-in-page {
+        background-image: url("../../assets/backgrounds/desktop-checklist-left.png");
+        background-size: cover;
+        background-position: center 30%;
+    }
+
+    .log-in-page {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    .log-in-page .page-content  {
+        margin: 8rem 12rem;
+    }
+}

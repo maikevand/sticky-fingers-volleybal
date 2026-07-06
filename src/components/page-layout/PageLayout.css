@@ -9,7 +9,7 @@
             rgba(29, 31, 62, 0.10) 70%,
             rgba(29, 31, 62, 0) 100%
     ),
-    url("../../assets/mobile-volleyball-background-without-logo.png");
+    url("../../assets/backgrounds/mobile-volleyball-background-without-logo.png");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -30,4 +30,12 @@
     text-decoration-color: var(--color-primary);
     text-decoration-thickness: 2px;
     text-underline-offset: 1rem;
+}
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-content {
+        max-width: 35%;
+        padding: 3rem;
+    }
 }

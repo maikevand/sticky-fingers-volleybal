@@ -2,7 +2,7 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    margin: 0.8rem;
+    margin: 0.8rem 0;
     gap: 0.8rem;
 }
 
@@ -17,6 +17,7 @@
     justify-content: space-between;
     gap: 1rem;
     flex: 1;
+    min-width: 0;
 }
 
 .poll-form {
@@ -29,4 +30,8 @@
     background-color: transparent;
     color: var(--color-primary);
     border: 2px solid var(--color-primary);
+}
+
+.poll-votes {
+    flex-shrink: 0;
 }

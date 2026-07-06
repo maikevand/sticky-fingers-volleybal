@@ -46,3 +46,22 @@
     color: var(--color-primary);
     border: 2px solid var(--color-primary);
 }
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.play-dates-page {
+        background-image: url("../../assets/backgrounds/desktop-dates.png");
+        background-size: cover;
+        background-position: center 30%;
+    }
+
+    .play-dates-page {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .play-dates-page .page-content  {
+        margin-top: 4rem;
+    }
+}

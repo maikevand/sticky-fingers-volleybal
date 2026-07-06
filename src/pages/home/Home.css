@@ -8,7 +8,7 @@
             rgba(29, 31, 62, 0.10) 70%,
             rgba(29, 31, 62, 0) 100%
     ),
-    url("../../assets/mobile-volleyball-background-without-logo.png");
+    url("../../assets/backgrounds/mobile-volleyball-background-without-logo.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,4 +28,44 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .home-page {
+        background-image:
+                linear-gradient(
+                        to right,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(29, 31, 62, 0.18) 41%,
+                        rgba(29, 31, 62, 0.62) 100%
+                ),
+                url("../../assets/backgrounds/desktop-volleyball-net.jpg");
+        background-size: cover;
+        background-position: center;
+
+        display: flex;
+        align-items: flex-start;
+        padding-top: 8%;
+        justify-content: flex-end;
+        padding-right: 15%;
+    }
+
+    .home-message {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 500px;
+        gap: 2rem;
+    }
+
+    .home-message h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        text-align: left;
+    }
+
+    .home-intro {
+        gap: 2rem;
+    }
 }

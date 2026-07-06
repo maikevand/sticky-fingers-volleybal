@@ -12,8 +12,66 @@
     padding: 0;
 }
 
+.polls-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .poll-card {
     background-color: rgba(29, 31, 62, 0.9);
     border-radius: 20px;
     padding: 2rem;
+}
+
+/* Tablets */
+@media screen and (min-width: 710px) {
+    .poll-answer-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .poll-votes {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+}
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.polls-page {
+        background-image: url("../../assets/backgrounds/desktop-net-only.png");
+        background-size: cover;
+        background-position: center 30%;
+    }
+
+    .polls-page .page-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
+        max-width: 100%;
+    }
+
+    .polls-title-section {
+        width: 40%;
+    }
+
+    .polls-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .poll-card {
+        width: calc(30% - 1rem);
+    }
 }

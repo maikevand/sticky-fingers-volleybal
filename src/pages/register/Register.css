@@ -1,0 +1,22 @@
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.register-page {
+        background-image: url("../../assets/backgrounds/desktop-checklist-left.png");
+        background-size: cover;
+        background-position: center 30%;
+    }
+
+    .register-page {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    .register-page .page-content  {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 2rem;
+        margin: 5rem 12rem;
+    }
+}
