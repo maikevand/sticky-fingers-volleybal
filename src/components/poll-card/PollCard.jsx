@@ -21,8 +21,8 @@ function PollCard({title, options}) {
                                     htmlFor={option.id}
                                     className="poll-answer-section"
                                     >
-                                    <span>{option.answer}</span>
-                                    <span>{option.votes} stemmen</span>
+                                    <span className="poll-question">{option.answer}</span>
+                                    <span className="poll-votes">{option.votes} stemmen</span>
                                 </label>
                             </li>
                         );

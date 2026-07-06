@@ -12,7 +12,7 @@ function Polls() {
         },
         {
             id: 2,
-            answer: "Nee, ik kan niet. En eigenlijk heb ik er ook helemaal geen zin in.",
+            answer: "Nee, ik kan niet.",
             votes: 3,
         },
     ];
@@ -26,10 +26,40 @@ function Polls() {
                     Nieuwe peiling
                 </Link>
             </div>
-            <PollCard
+            <div className="polls-list">
+                <PollCard
                 title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
                 options={options}
             />
+                <PollCard
+                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
+                    options={options}
+                />
+                <PollCard
+                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
+                    options={options}
+                />
+                <PollCard
+                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
+                    options={options}
+                />
+                <PollCard
+                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
+                    options={options}
+                />
+                <PollCard
+                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
+                    options={options}
+                />
+                <PollCard
+                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
+                    options={options}
+                />
+                <PollCard
+                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
+                    options={options}
+                />
+            </div>
         </PageLayout>
     )
 }
