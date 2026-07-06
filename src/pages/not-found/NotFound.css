@@ -1,3 +1,20 @@
 .not-found-link {
     color: var(--color-white);
 }
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.not-found-page {
+        background-image: url("../../assets/backgrounds/desktop-net-only.png");
+        background-size: cover;
+        background-position: center 30%;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .not-found-page .page-content  {
+        margin-top: 4rem;
+    }
+}
