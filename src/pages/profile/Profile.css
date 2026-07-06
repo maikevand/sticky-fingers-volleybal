@@ -8,3 +8,32 @@
     display: flex;
     flex-direction: column;
 }
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.profile-page {
+        background-image: url("../../assets/backgrounds/desktop-checklist-left.png");
+        background-size: cover;
+        background-position: center 30%;
+    }
+
+    .profile-page {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    .profile-page .page-content  {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 8rem 12rem;
+    }
+
+    .user-data-section p {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5rem;
+    }
+}

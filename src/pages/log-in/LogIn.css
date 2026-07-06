@@ -13,6 +13,7 @@
     .log-in-page {
         display: flex;
         justify-content: flex-end;
+        align-items: flex-start;
     }
 
     .log-in-page .page-content  {
