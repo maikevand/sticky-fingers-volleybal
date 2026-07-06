@@ -30,3 +30,16 @@
     gap: 1rem;
     color: var(--color-secondary-light);
 }
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.members-page {
+        background-image: url("../../assets/backgrounds/desktop-smash.png");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .members-page .page-content {
+        margin: 3rem 14rem;
+    }
+}
