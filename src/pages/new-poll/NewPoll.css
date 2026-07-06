@@ -3,3 +3,22 @@
     color: var(--color-primary);
     border: 2px solid var(--color-primary);
 }
+
+/* Kleine computerschermen */
+@media screen and (min-width: 992px) {
+    .page-background.new-poll-page {
+        background-image: url("../../assets/backgrounds/desktop-poll.png");
+        background-size: cover;
+        background-position: center 30%;
+    }
+
+    .new-poll-page {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    .new-poll-page .page-content {
+        margin: 8rem 12rem;
+    }
+}
