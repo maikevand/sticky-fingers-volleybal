@@ -4,16 +4,17 @@ import Button from "../../components/button/Button.jsx"
 import FormField from "../../components/form-field/FormField.jsx";
 import {useState} from "react";
 
+const initialFormState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+};
+
 function Contact() {
 
-    const [formState, setFormState] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        message: "",
-    });
-
+    const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     function handleFormChange(event) {
@@ -22,21 +23,16 @@ function Contact() {
         setFormState({
             ...formState,
             [name]: value,
-        })
+        });
+
+        setIsSubmitted(false);
     }
 
     function handleSubmit(event) {
         event.preventDefault();
         console.log(formState);
 
-        setFormState({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phoneNumber: "",
-            message: "",
-        });
-
+        setFormState(initialFormState);
         setIsSubmitted(true);
     }
 
