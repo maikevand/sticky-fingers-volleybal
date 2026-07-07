@@ -8,6 +8,8 @@ const initialFormState = {
     question: "",
     optionOne: "",
     optionTwo: "",
+    optionThree: "",
+    optionFour: "",
 };
 
 function NewPoll() {
@@ -19,8 +21,8 @@ function NewPoll() {
         const {name, value} = event.target;
 
         setFormState({
-           ...formState,
-           [name]: value,
+            ...formState,
+            [name]: value,
         });
 
         setIsSubmitted(false);
@@ -31,15 +33,15 @@ function NewPoll() {
         event.preventDefault();
 
         try {
-        console.log(formState);
+            console.log(formState);
 
-        setFormState(initialFormState);
-        setIsSubmitted(true);
-        setErrorMessage("");
-    } catch (error) {
-        console.error(error);
-        setIsSubmitted(false);
-        setErrorMessage("Er ging iets mis. Probeer het opnieuw.");
+            setFormState(initialFormState);
+            setIsSubmitted(true);
+            setErrorMessage("");
+        } catch (error) {
+            console.error(error);
+            setIsSubmitted(false);
+            setErrorMessage("Er ging iets mis. Probeer het opnieuw.");
         }
     }
 
@@ -47,27 +49,20 @@ function NewPoll() {
         <PageLayout className="new-poll-page">
             <h1>Nieuwe peiling</h1>
             <form className="new-poll-form" onSubmit={handleSubmit}>
-                {/*<FormField*/}
-                {/*    htmlFor="name-field"*/}
-                {/*    text="Naam"*/}
-                {/*    type="text"*/}
-                {/*    id="name-field"*/}
-                {/*    name="name"*/}
-                {/*/>*/}
                 <label htmlFor="poll-question-field" className="textarea-label">
                     Vraag *
                 </label>
-                    <textarea
-                        name="question"
-                        id="poll-question-field"
-                        value={formState.question}
-                        onChange={handleFormChange}
-                        cols={34}
-                        rows={2}
-                        maxLength={70}
-                        required={true}
-                        placeholder="Wie wil doorspelen in de kerstvakantie?">
-                    </textarea>
+                <textarea
+                    name="question"
+                    id="poll-question-field"
+                    value={formState.question}
+                    onChange={handleFormChange}
+                    cols={34}
+                    rows={2}
+                    maxLength={70}
+                    required={true}
+                    placeholder="Wie wil doorspelen in de kerstvakantie?"
+                />
 
                 <FormField
                     label="Antwoordoptie 1 *"
@@ -122,7 +117,7 @@ function NewPoll() {
                 <p className="poll-error-message">
                     {errorMessage}
                 </p>
-                )}
+            )}
         </PageLayout>
     );
 }
