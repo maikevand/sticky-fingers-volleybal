@@ -13,7 +13,6 @@ const initialFormState = {
 };
 
 function Contact() {
-
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
