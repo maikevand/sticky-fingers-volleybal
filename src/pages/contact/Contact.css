@@ -1,7 +1,7 @@
-.contact-success-message {
-    align-self: center;
+.contact-success-message,
+.contact-error-message {
+    text-align: center;
 }
-
 
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {

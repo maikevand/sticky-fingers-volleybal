@@ -16,6 +16,7 @@ function Contact() {
 
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     function handleFormChange(event) {
         const {name, value} = event.target;
@@ -26,14 +27,23 @@ function Contact() {
         });
 
         setIsSubmitted(false);
+        setErrorMessage("");
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log(formState);
 
-        setFormState(initialFormState);
-        setIsSubmitted(true);
+        try {
+            console.log(formState);
+
+            setFormState(initialFormState);
+            setIsSubmitted(true);
+            setErrorMessage("");
+        } catch (error) {
+            console.error(error);
+            setIsSubmitted(false);
+            setErrorMessage("Er ging iets mis bij het verzenden. Probeer het opnieuw.");
+        }
     }
 
     return (
@@ -104,6 +114,10 @@ function Contact() {
             </form>
             {isSubmitted && (
                 <p className="contact-success-message">Bedankt! Je bericht is verzonden.</p>
+            )}
+
+            {errorMessage && (
+                <p className="contact-error-message">{errorMessage}</p>
             )}
         </PageLayout>
     );
