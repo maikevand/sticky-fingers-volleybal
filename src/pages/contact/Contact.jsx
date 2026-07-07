@@ -14,6 +14,8 @@ function Contact() {
         message: "",
     });
 
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     function handleFormChange(event) {
         const {name, value} = event.target;
 
@@ -26,6 +28,16 @@ function Contact() {
     function handleSubmit(event) {
         event.preventDefault();
         console.log(formState);
+
+        setFormState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            message: "",
+        });
+
+        setIsSubmitted(true);
     }
 
     return (
@@ -37,31 +49,34 @@ function Contact() {
             </p>
             <form className="contact-form" onSubmit={handleSubmit}>
                 <FormField
-                    label="Voornaam"
+                    label="Voornaam *"
                     type="text"
                     id="first-name-field"
                     name="firstName"
                     value={formState.firstName}
                     maxLength={35}
                     changeHandler={handleFormChange}
+                    required={true}
                 />
                 <FormField
-                    label="Achternaam"
+                    label="Achternaam *"
                     type="text"
                     id="last-name-field"
                     name="lastName"
                     value={formState.lastName}
                     maxLength={35}
                     changeHandler={handleFormChange}
+                    required={true}
                 />
                 <FormField
-                    label="E-mail"
+                    label="E-mail *"
                     type="email"
                     id="contact-email-field"
                     name="email"
                     value={formState.email}
                     maxLength={50}
                     changeHandler={handleFormChange}
+                    required={true}
                 />
                 <FormField
                     label="Telefoonnummer"
@@ -73,7 +88,7 @@ function Contact() {
                     changeHandler={handleFormChange}
                 />
                 <label htmlFor="message-field" className="textarea-label">
-                    Bericht
+                    Bericht *
                 </label>
                 <textarea
                     name="message"
@@ -84,12 +99,16 @@ function Contact() {
                     rows={10}
                     maxLength={400}
                     placeholder="Stel hier je vraag of je verzoek wanneer je wil meespelen"
+                    required={true}
                 />
                 <Button
                     type="submit"
                     text="Verzenden"
                 />
             </form>
+            {isSubmitted && (
+                <p className="contact-success-message">Bedankt! Je bericht is verzonden.</p>
+            )}
         </PageLayout>
     );
 }

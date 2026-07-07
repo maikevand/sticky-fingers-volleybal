@@ -1,6 +1,6 @@
 import "./FormField.css"
 
-function FormField({label, type, id, name, value, placeholder, maxLength, changeHandler}) {
+function FormField({label, type, id, name, value, placeholder, maxLength, changeHandler, required=false}) {
     return (
         <label
             htmlFor={id}
@@ -14,6 +14,7 @@ function FormField({label, type, id, name, value, placeholder, maxLength, change
                 placeholder={placeholder}
                 maxLength={maxLength}
                 onChange={changeHandler}
+                required={required}
             />
         </label>
     );
