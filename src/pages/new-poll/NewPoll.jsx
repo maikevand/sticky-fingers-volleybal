@@ -27,16 +27,14 @@ function NewPoll() {
                     </textarea>
                 </label>
                 <FormField
-                    htmlFor="poll-option1-field"
-                    text="Antwoordoptie 1"
+                    label="Antwoordoptie 1"
                     type="text"
                     id="poll-option1-field"
                     name="option1"
                     maxLength="45"
                 />
                 <FormField
-                    htmlFor="poll-option2-field"
-                    text="Antwoordoptie 2"
+                    label="Antwoordoptie 2"
                     type="text"
                     id="poll-option2-field"
                     name="option2"

@@ -1,11 +1,11 @@
 import "./FormField.css"
 
-function FormField({htmlFor, text, type, id, name, placeholder, maxLength}) {
+function FormField({label, type, id, name, placeholder, maxLength}) {
     return (
         <label
-            htmlFor={htmlFor}
+            htmlFor={id}
             className="form-field">
-            {text}
+            {label}
             <input
                 type={type}
                 id={id}

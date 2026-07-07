@@ -10,16 +10,14 @@ function LogIn() {
             <h1>Inloggen</h1>
             <form>
                 <FormField
-                    htmlFor="login-email-field"
-                    text="E-mailadres"
+                    label="E-mailadres"
                     type="email"
                     id="login-email-field"
                     name="email"
                     maxLength="35"
                 />
                 <FormField
-                    htmlFor="login-password-field"
-                    text="Wachtwoord"
+                    label="Wachtwoord"
                     type="password"
                     id="login-password-field"
                     name="password"

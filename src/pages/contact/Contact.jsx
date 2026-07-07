@@ -12,27 +12,31 @@ function Contact() {
             </p>
             <form className="contact-form">
                 <FormField
-                    htmlFor="name-field"
-                    text="Naam"
+                    label="Voornaam"
                     type="text"
-                    id="name-field"
-                    name="name"
+                    id="first-name-field"
+                    name="firstName"
                     maxLength="35"
                 />
                 <FormField
-                    htmlFor="contact-email-field"
-                    text="E-mail"
+                    label="Achternaam"
+                    type="text"
+                    id="lastName"
+                    name="last-name"
+                    maxLength="35"
+                />
+                <FormField
+                    label="E-mail"
                     type="email"
                     id="contact-email-field"
                     name="email"
                     maxLength="50"
                 />
                 <FormField
-                    htmlFor="telephone-field"
-                    text="Telefoonnummer"
+                    label="Telefoonnummer"
                     type="tel"
                     id="telephone-field"
-                    name="telephone"
+                    name="phoneNumber"
                     maxLength="13"
                 />
                 <label htmlFor="message-field" className="textarea-label">
