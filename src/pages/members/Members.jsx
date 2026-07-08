@@ -13,7 +13,7 @@ function Members({isAuthenticated}) {
                 <>
                     <h1>Voor leden</h1>
                     <section className="members-intro">
-                        <h2>Welkom, leuk dat je er weer bent!</h2>
+                        <h2>Leuk dat je er weer bent!</h2>
                         <p>Bekijk hieronder de speeldata en lopende peilingen.</p>
                     </section>
 

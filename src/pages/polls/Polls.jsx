@@ -4,16 +4,43 @@ import PollCard from "../../components/poll-card/PollCard.jsx";
 import {Link} from "react-router-dom";
 
 function Polls() {
-    const options = [
+    const polls = [
         {
             id: 1,
-            answer: "Ja, gezellig! Ik wil wel meegaan met het etentje!",
-            votes: 8,
+            title: "Ga je mee uit eten op 18 augustus?",
+            options: [
+                {
+                    id: 1,
+                    answer: "Ja, gezellig! Ik wil wel meegaan met het etentje!",
+                    votes: 8,
+                },
+                {
+                    id: 2,
+                    answer: "Nee, ik kan niet.",
+                    votes: 3,
+                },
+            ],
         },
         {
             id: 2,
-            answer: "Nee, ik kan niet.",
-            votes: 3,
+            title: "Wie wil doorspelen in de kerstvakantie?",
+            options: [
+                {
+                    id: 1,
+                    answer: "Ja, ik speel graag door.",
+                    votes: 6,
+                },
+                {
+                    id: 2,
+                    answer: "Nee, ik sla even over.",
+                    votes: 2,
+                },
+                {
+                    id: 3,
+                    answer: "Misschien, ik weet het nog niet.",
+                    votes: 4,
+                },
+            ],
         },
     ];
 
@@ -27,38 +54,12 @@ function Polls() {
                 </Link>
             </div>
             <div className="polls-list">
-                <PollCard
-                title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                options={options}
-            />
-                <PollCard
-                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                    options={options}
-                />
-                <PollCard
-                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                    options={options}
-                />
-                <PollCard
-                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                    options={options}
-                />
-                <PollCard
-                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                    options={options}
-                />
-                <PollCard
-                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                    options={options}
-                />
-                <PollCard
-                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                    options={options}
-                />
-                <PollCard
-                    title="Ga je mee uit eten 18 augustus? En hierbij weer een test met een langere tekst."
-                    options={options}
-                />
+                {polls.map((poll) => (
+                    <PollCard
+                        key={poll.id}
+                        poll={poll}
+                    />
+                ))}
             </div>
         </PageLayout>
     )

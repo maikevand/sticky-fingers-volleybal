@@ -1,24 +1,29 @@
 import "./PollCard.css";
 import Button from "../button/Button.jsx";
+import {useState} from "react";
 
-function PollCard({title, options}) {
+function PollCard({poll}) {
+    const [selectedOptionId, setSelectedOptionId] = useState("");
+
     return (
         <article className="poll-card">
-                <h2>{title}</h2>
+                <h2>{poll.title}</h2>
             <form className="poll-form">
                 <ul className="poll-options">
-                    {options.map((option) => {
+                    {poll.options.map((option) => {
                         return (
                             <li key={option.id}>
                                 <input
                                     type="radio"
-                                    id={option.id}
-                                    name="poll-answer"
+                                    id={`poll-${poll.id}-option-${option.id}`}
+                                    name={`poll-${poll.id}-answer`}
                                     value={option.id}
+                                    checked={selectedOptionId === String(option.id)}
+                                    onChange={(event) => setSelectedOptionId(event.target.value)}
                                 />
 
                                 <label
-                                    htmlFor={option.id}
+                                    htmlFor={`poll-${poll.id}-option-${option.id}`}
                                     className="poll-answer-section"
                                     >
                                     <span className="poll-question">{option.answer}</span>
