@@ -10,7 +10,7 @@ const initialFormState = {
     password: "",
 }
 
-function LogIn() {
+function LogIn({onLogin}) {
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -33,6 +33,8 @@ function LogIn() {
 
         try {
             console.log(formState);
+
+            onLogin();
 
             setFormState(initialFormState);
             setIsSubmitted(true);
