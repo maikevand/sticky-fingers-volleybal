@@ -16,7 +16,7 @@ import {useState} from "react";
 
 function App() {
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(true);
 
     function handleLogin() {
         setIsAuthenticated(true);
@@ -42,7 +42,7 @@ function App() {
                     <Route path="/nieuwe-peiling"
                            element={isAuthenticated ? (<NewPoll/>) : (<Navigate to="/inloggen"/>)}/>
                     <Route path="/inloggen"
-                           element={isAuthenticated ? (<Navigate to="/profiel"/>) : (<LogIn onLogin={handleLogin}/>) }/>
+                           element={isAuthenticated ? (<Navigate to="/profiel"/>) : (<LogIn onLogin={handleLogin}/>)}/>
                     <Route path="/registreren" element={<Register/>}/>
                     <Route path="/profiel"
                            element={isAuthenticated ? (<Profile/>) : (<Navigate to="/inloggen"/>)}/>
