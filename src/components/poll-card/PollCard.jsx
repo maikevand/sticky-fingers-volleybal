@@ -14,36 +14,50 @@ function PollCard({poll}) {
 
     return (
         <article className="poll-card">
-                <h2>{poll.title}</h2>
+            <h2>{poll.question}</h2>
             <form className="poll-form" onSubmit={handleSubmit}>
                 <ul className="poll-options">
-                    {poll.options.map((option) => {
-                        return (
-                            <li key={option.id}>
-                                <input
-                                    type="radio"
-                                    id={`poll-${poll.id}-option-${option.id}`}
-                                    name={`poll-${poll.id}-answer`}
-                                    value={option.id}
-                                    checked={selectedOptionId === String(option.id)}
-                                    onChange={(event) => setSelectedOptionId(event.target.value)}
-                                />
+                    <li>
+                        <input
+                            type="radio"
+                            id={`poll-${poll.id}-option-one`}
+                            name={`poll-${poll.id}-answer`}
+                            value="optionOne"
+                            checked={selectedOptionId === "optionOne"}
+                            onChange={(event) => setSelectedOptionId(event.target.value)}
+                        />
 
-                                <label
-                                    htmlFor={`poll-${poll.id}-option-${option.id}`}
-                                    className="poll-answer-section"
-                                    >
-                                    <span className="poll-question">{option.answer}</span>
-                                    <span className="poll-votes">{option.votes} stemmen</span>
-                                </label>
-                            </li>
-                        );
-                    })}
+                        <label
+                            htmlFor={`poll-${poll.id}-option-one`}
+                            className="poll-answer-section"
+                        >
+                            <span className="poll-question">{poll.optionOne}</span>
+                            <span className="poll-votes">{poll.optionOneVotes} stemmen</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input
+                            type="radio"
+                            id={`poll-${poll.id}-option-two`}
+                            name={`poll-${poll.id}-answer`}
+                            value="optionTwo"
+                            checked={selectedOptionId === "optionTwo"}
+                            onChange={(event) => setSelectedOptionId(event.target.value)}
+                        />
+
+                        <label
+                            htmlFor={`poll-${poll.id}-option-two`}
+                            className="poll-answer-section"
+                        >
+                            <span className="poll-question">{poll.optionTwo}</span>
+                            <span className="poll-votes">{poll.optionTwoVotes} stemmen</span>
+                        </label>
+                    </li>
                 </ul>
-            <Button
-                type="submit"
-                text="Stem indienen"
-            />
+                <Button
+                    type="submit"
+                    text="Stem indienen"
+                />
             </form>
         </article>
     );
