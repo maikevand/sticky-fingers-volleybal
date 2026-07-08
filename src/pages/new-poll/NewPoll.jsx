@@ -3,19 +3,20 @@ import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import FormField from "../../components/form-field/FormField.jsx";
 import Button from "../../components/button/Button.jsx";
 import {useState} from "react";
+import axios from "axios";
 
 const initialFormState = {
     question: "",
     optionOne: "",
     optionTwo: "",
-    optionThree: "",
-    optionFour: "",
 };
 
 function NewPoll() {
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
+    const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
     function handleFormChange(event) {
         const {name, value} = event.target;
@@ -32,8 +33,22 @@ function NewPoll() {
     async function handleSubmit(event) {
         event.preventDefault();
 
+        const pollData = {
+            question: formState.question,
+            optionOne: formState.optionOne,
+            optionTwo: formState.optionTwo,
+            optionOneVotes: 0,
+            optionTwoVotes: 0,
+        };
+
         try {
-            console.log(formState);
+            const response = await axios.post(`${baseUrl}/polls`, pollData, {
+                headers: {
+                    "novi-education-project-id": projectId,
+                },
+            });
+
+            console.log(response.data);
 
             setFormState(initialFormState);
             setIsSubmitted(true);
@@ -50,7 +65,7 @@ function NewPoll() {
             <h1>Nieuwe peiling</h1>
             <form className="new-poll-form" onSubmit={handleSubmit}>
                 <label htmlFor="poll-question-field" className="textarea-label">
-                    Vraag *
+                    Vraag
                 </label>
                 <textarea
                     name="question"
@@ -65,7 +80,7 @@ function NewPoll() {
                 />
 
                 <FormField
-                    label="Antwoordoptie 1 *"
+                    label="Antwoordoptie 1"
                     type="text"
                     id="poll-option1-field"
                     name="optionOne"
@@ -75,7 +90,7 @@ function NewPoll() {
                     required={true}
                 />
                 <FormField
-                    label="Antwoordoptie 2 *"
+                    label="Antwoordoptie 2"
                     type="text"
                     id="poll-option2-field"
                     name="optionTwo"
@@ -83,24 +98,6 @@ function NewPoll() {
                     maxLength={45}
                     changeHandler={handleFormChange}
                     required={true}
-                />
-                <FormField
-                    label="Antwoordoptie 3"
-                    type="text"
-                    id="poll-option3-field"
-                    name="optionThree"
-                    value={formState.optionThree}
-                    maxLength={45}
-                    changeHandler={handleFormChange}
-                />
-                <FormField
-                    label="Antwoordoptie 4"
-                    type="text"
-                    id="poll-option4-field"
-                    name="optionFour"
-                    value={formState.optionFour}
-                    maxLength={45}
-                    changeHandler={handleFormChange}
                 />
                 <Button
                     type="submit"

@@ -1,0 +1,58 @@
+{
+  "collections": [
+    {
+      "name": "polls",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "question",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 70
+        },
+        {
+          "name": "optionOne",
+          "type": "string",
+          "required": true,
+          "min": 1,
+          "max": 45
+        },
+        {
+          "name": "optionTwo",
+          "type": "string",
+          "required": true,
+          "min": 1,
+          "max": 45
+        },
+        {
+          "name": "optionOneVotes",
+          "type": "number",
+          "required": true,
+          "min": 0
+        },
+        {
+          "name": "optionTwoVotes",
+          "type": "number",
+          "required": true,
+          "min": 0
+        }
+      ],
+      "permissions": {
+        "GET": ["anonymous", "user", "admin"],
+        "POST": ["anonymous", "user", "admin"],
+        "PUT": ["user", "admin"],
+        "PATCH": ["anonymous", "user", "admin"],
+        "DELETE": ["admin"]
+      }
+    }
+  ],
+  "users": [],
+  "data": {
+    "polls": []
+  }
+}
