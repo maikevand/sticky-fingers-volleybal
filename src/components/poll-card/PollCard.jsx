@@ -5,10 +5,17 @@ import {useState} from "react";
 function PollCard({poll}) {
     const [selectedOptionId, setSelectedOptionId] = useState("");
 
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        console.log("Poll id:", poll.id);
+        console.log("Gekozen optie:", selectedOptionId);
+    }
+
     return (
         <article className="poll-card">
                 <h2>{poll.title}</h2>
-            <form className="poll-form">
+            <form className="poll-form" onSubmit={handleSubmit}>
                 <ul className="poll-options">
                     {poll.options.map((option) => {
                         return (
@@ -34,7 +41,7 @@ function PollCard({poll}) {
                     })}
                 </ul>
             <Button
-                type="button"
+                type="submit"
                 text="Stem indienen"
             />
             </form>
