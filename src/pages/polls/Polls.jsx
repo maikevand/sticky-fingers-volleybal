@@ -6,46 +6,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 function Polls() {
-    // const polls = [
-    //     {
-    //         id: 1,
-    //         title: "Ga je mee uit eten op 18 augustus?",
-    //         options: [
-    //             {
-    //                 id: 1,
-    //                 answer: "Ja, gezellig! Ik wil wel meegaan met het etentje!",
-    //                 votes: 8,
-    //             },
-    //             {
-    //                 id: 2,
-    //                 answer: "Nee, ik kan niet.",
-    //                 votes: 3,
-    //             },
-    //         ],
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "Wie wil doorspelen in de kerstvakantie?",
-    //         options: [
-    //             {
-    //                 id: 1,
-    //                 answer: "Ja, ik speel graag door.",
-    //                 votes: 6,
-    //             },
-    //             {
-    //                 id: 2,
-    //                 answer: "Nee, ik sla even over.",
-    //                 votes: 2,
-    //             },
-    //             {
-    //                 id: 3,
-    //                 answer: "Misschien, ik weet het nog niet.",
-    //                 votes: 4,
-    //             },
-    //         ],
-    //     },
-    // ];
-
     const [polls, setPolls] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -60,7 +20,7 @@ function Polls() {
 
             try {
                 const response = await axios.get(`${baseUrl}/polls`, {
-                    headers : {
+                    headers: {
                         "novi-education-project-id": projectId,
                     },
                 });
@@ -77,6 +37,38 @@ function Polls() {
         fetchPolls();
     }, []);
 
+    async function handleVote(poll, selectedOptionId) {
+        if (!selectedOptionId) {
+            setErrorMessage("Kies eerst een optie voordat je stemt.");
+            return;
+        }
+
+        setErrorMessage("");
+
+        const updatedVoteData =
+            selectedOptionId === "optionOne"
+                ? {optionOneVotes: poll.optionOneVotes + 1}
+                : {optionTwoVotes: poll.optionTwoVotes + 1};
+
+        try {
+            const response = await axios.patch(`${baseUrl}/polls/${poll.id}`,
+                updatedVoteData,
+                {
+                    headers: {
+                        "novi-education-project-id": projectId,
+                    },
+                });
+
+            setPolls((currentPolls) =>
+            currentPolls.map((currentPoll) =>
+            currentPoll.id === poll.id ? response.data : currentPoll
+            ));
+        } catch (error) {
+            console.error(error);
+            setErrorMessage("Stem kon niet worden ingediend. Probeer opnieuw.");
+        }
+    }
+
     return (
         <PageLayout className="polls-page">
             <div className="polls-title-section">
@@ -89,17 +81,12 @@ function Polls() {
 
             {isLoading && <p>Peilingen worden geladen...</p>}
 
-            {errorMessage && (
-                <p className="poll-error-message">
-                    {errorMessage}
-                </p>
-            )}
-
             <div className="polls-list">
                 {polls.map((poll) => (
                     <PollCard
                         key={poll.id}
                         poll={poll}
+                        onVote={handleVote}
                     />
                 ))}
             </div>

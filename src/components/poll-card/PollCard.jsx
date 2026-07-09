@@ -2,14 +2,20 @@ import "./PollCard.css";
 import Button from "../button/Button.jsx";
 import {useState} from "react";
 
-function PollCard({poll}) {
+function PollCard({poll, onVote}) {
     const [selectedOptionId, setSelectedOptionId] = useState("");
+    const [localErrorMessage, setLocalErrorMessage] = useState("");
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        console.log("Poll id:", poll.id);
-        console.log("Gekozen optie:", selectedOptionId);
+        if (!selectedOptionId) {
+            setLocalErrorMessage("Kies eerst een optie voordat je stemt.");
+            return;
+        }
+
+        setLocalErrorMessage("");
+        onVote(poll, selectedOptionId);
     }
 
     return (
@@ -58,6 +64,13 @@ function PollCard({poll}) {
                     type="submit"
                     text="Stem indienen"
                 />
+
+                {localErrorMessage && (
+                    <p className="poll-error-message">
+                        {localErrorMessage}
+                    </p>
+                )}
+
             </form>
         </article>
     );

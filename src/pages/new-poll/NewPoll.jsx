@@ -4,6 +4,7 @@ import FormField from "../../components/form-field/FormField.jsx";
 import Button from "../../components/button/Button.jsx";
 import {useState} from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 const initialFormState = {
     question: "",
@@ -105,9 +106,14 @@ function NewPoll() {
                 />
             </form>
             {isSubmitted && (
+                <div className="poll-success-section">
                 <p className="poll-success-message">
                     Bedankt! Je peiling is aangemaakt.
                 </p>
+                <p>
+                    Klik <Link className="polls-link" to="/peilingen">hier</Link> om naar het overzicht te gaan.
+                </p>
+                </div>
             )}
 
             {errorMessage && (
