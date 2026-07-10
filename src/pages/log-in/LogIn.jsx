@@ -18,6 +18,7 @@ function LogIn() {
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const {login} = useContext(AuthContext);
 
     function handleFormChange(event) {
@@ -36,6 +37,10 @@ function LogIn() {
     async function handleSubmit(event) {
         event.preventDefault();
 
+        setIsSubmitted(false);
+        setErrorMessage("");
+        setIsLoading(true);
+
         try {
             const response = await axios.post(`${baseUrl}/login`, {
                 email: formState.email,
@@ -51,7 +56,8 @@ function LogIn() {
             console.error(error);
             setIsSubmitted(false);
             setErrorMessage("Er ging iets mis. Probeer het opnieuw.");
-
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -80,7 +86,8 @@ function LogIn() {
                 />
                 <Button
                     type="submit"
-                    text="Inloggen"
+                    text={isLoading ? "Bezig met inloggen..." : "Inloggen"}
+                    disabled={isLoading}
                 />
             </form>
             <p>Nog geen account? Klik <Link className="register-link" to="/registreren">hier</Link> om je te
