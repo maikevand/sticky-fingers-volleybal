@@ -1,8 +1,12 @@
 import "./Profile.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import Button from "../../components/button/Button.jsx";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Profile() {
+    const {logout} = useContext(AuthContext);
+
     return (
         <PageLayout className="profile-page">
             <h1>Profiel</h1>
@@ -13,6 +17,7 @@ function Profile() {
             <Button
                 type="button"
                 text="Uitloggen"
+                onClick={logout}
             />
         </PageLayout>
     );
