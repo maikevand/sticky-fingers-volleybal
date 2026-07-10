@@ -3,17 +3,21 @@ import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import FormField from "../../components/form-field/FormField.jsx";
 import Button from "../../components/button/Button.jsx";
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useState, useContext} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
+import axios from "axios";
 
 const initialFormState = {
     email: "",
     password: "",
 }
 
-function LogIn({onLogin}) {
+function LogIn() {
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const {login} = useContext(AuthContext);
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
     function handleFormChange(event) {
         const {name, value} = event.target;
@@ -32,9 +36,12 @@ function LogIn({onLogin}) {
         event.preventDefault();
 
         try {
-            console.log(formState);
+            const response = await axios.post(`${baseUrl}/login`, {
+                email: formState.email,
+                password: formState.password,
+            });
 
-            onLogin();
+            login(response.data);
 
             setFormState(initialFormState);
             setIsSubmitted(true);

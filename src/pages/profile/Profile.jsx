@@ -11,8 +11,13 @@ function Profile() {
         <PageLayout className="profile-page">
             <h1>Profiel</h1>
             <section className="user-data-section">
-                <p><strong>Naam: </strong>Voornaam Achternaam</p>
-                <p><strong>E-mailadres: </strong>emailadres@outlook.com</p>
+                <p><strong>Naam: </strong>
+                    <span>Voornaam Achternaam</span>
+                </p>
+                <p>
+                    <strong>E-mailadres:</strong>
+                    <span>emailadres@outlook.com</span>
+                </p>
             </section>
             <Button
                 type="button"

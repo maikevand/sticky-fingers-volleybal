@@ -71,12 +71,13 @@ function AuthContextProvider({children}) {
         });
 
         void fetchUserData(userDetails.token);
-        navigate('/profile');
+        navigate('/profiel');
     }
 
 
     function logout() {
         localStorage.removeItem("token");
+
         toggleIsAuth({
             isAuth: false,
             user: null,

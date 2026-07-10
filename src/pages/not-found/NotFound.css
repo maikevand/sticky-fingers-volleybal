@@ -2,6 +2,10 @@
     color: var(--color-white);
 }
 
+.not-found-page h1 {
+    text-decoration: none;
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.not-found-page {

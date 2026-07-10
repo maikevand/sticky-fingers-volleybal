@@ -12,19 +12,15 @@ import LogIn from "./pages/log-in/LogIn.jsx";
 import Register from "./pages/register/Register.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import NotFound from "./pages/not-found/NotFound.jsx";
-import {useState} from "react";
+import {useContext} from "react";
+import {AuthContext} from "./context/AuthContext.jsx";
 
 function App() {
+    const {isAuth, status} = useContext(AuthContext);
 
-    const [isAuthenticated, setIsAuthenticated] = useState(true);
-
-    function handleLogin() {
-        setIsAuthenticated(true);
+    if (status === "pending") {
+        return <p>Laden...</p>;
     }
-
-    // function handleLogout() {
-    //     setIsAuthenticated(false);
-    // }
 
     return (
         <div className="page-layout">
@@ -34,18 +30,18 @@ function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/over-ons" element={<About/>}/>
                     <Route path="/contact" element={<Contact/>}/>
-                    <Route path="/voor-leden" element={<Members isAuthenticated={isAuthenticated}/>}/>
+                    <Route path="/voor-leden" element={<Members isAuthenticated={isAuth}/>}/>
                     <Route path="/speeldata"
-                           element={isAuthenticated ? (<PlayDates/>) : (<Navigate to="/inloggen"/>)}/>
+                           element={isAuth ? (<PlayDates/>) : (<Navigate to="/inloggen"/>)}/>
                     <Route path="/peilingen"
-                           element={isAuthenticated ? (<Polls/>) : (<Navigate to="/inloggen"/>)}/>
+                           element={isAuth ? (<Polls/>) : (<Navigate to="/inloggen"/>)}/>
                     <Route path="/nieuwe-peiling"
-                           element={isAuthenticated ? (<NewPoll/>) : (<Navigate to="/inloggen"/>)}/>
+                           element={isAuth ? (<NewPoll/>) : (<Navigate to="/inloggen"/>)}/>
                     <Route path="/inloggen"
-                           element={isAuthenticated ? (<Navigate to="/profiel"/>) : (<LogIn onLogin={handleLogin}/>)}/>
+                           element={isAuth ? (<Navigate to="/profiel"/>) : (<LogIn/>)}/>
                     <Route path="/registreren" element={<Register/>}/>
                     <Route path="/profiel"
-                           element={isAuthenticated ? (<Profile/>) : (<Navigate to="/inloggen"/>)}/>
+                           element={isAuth ? (<Profile/>) : (<Navigate to="/"/>)}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </main>
