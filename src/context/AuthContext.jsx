@@ -3,6 +3,8 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
@@ -13,14 +15,14 @@ function AuthContextProvider({children}) {
     });
 
     const navigate = useNavigate();
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-    async function fetchUserData(token) {
+    async function fetchUserData(token, signal) {
         const decoded = jwtDecode(token);
         const userId = decoded.userId;
 
         try {
             const response = await axios.get(`${baseUrl}/users/${userId}`, {
+                signal: signal,
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
@@ -48,9 +50,11 @@ function AuthContextProvider({children}) {
     }
 
     useEffect(() => {
+        const controller = new AbortController();
+
         const token = localStorage.getItem("token");
         if (token) {
-            void fetchUserData(token)
+            void fetchUserData(token, controller.signal);
         } else {
             toggleIsAuth({
                 isAuth: false,
@@ -58,6 +62,10 @@ function AuthContextProvider({children}) {
                 status: "done",
             })
         }
+
+        return function cleanup() {
+            controller.abort();
+        };
     }, []);
 
     function login(userDetails) {
@@ -73,7 +81,6 @@ function AuthContextProvider({children}) {
         void fetchUserData(userDetails.token);
         navigate('/profiel');
     }
-
 
     function logout() {
         localStorage.removeItem("token");

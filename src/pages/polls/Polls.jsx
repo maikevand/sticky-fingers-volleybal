@@ -5,21 +5,24 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
+
 function Polls() {
     const [polls, setPolls] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
-    const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
-
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchPolls() {
             setIsLoading(true);
             setErrorMessage("");
 
             try {
                 const response = await axios.get(`${baseUrl}/polls`, {
+                    signal: controller.signal,
                     headers: {
                         "novi-education-project-id": projectId,
                     },
@@ -34,7 +37,11 @@ function Polls() {
             }
         }
 
-        fetchPolls();
+        void fetchPolls();
+
+        return function cleanup() {
+            controller.abort();
+        };
     }, []);
 
     async function handleVote(poll, selectedOptionId) {
@@ -60,9 +67,9 @@ function Polls() {
                 });
 
             setPolls((currentPolls) =>
-            currentPolls.map((currentPoll) =>
-            currentPoll.id === poll.id ? response.data : currentPoll
-            ));
+                currentPolls.map((currentPoll) =>
+                    currentPoll.id === poll.id ? response.data : currentPoll
+                ));
         } catch (error) {
             console.error(error);
             setErrorMessage("Stem kon niet worden ingediend. Probeer opnieuw.");
@@ -81,6 +88,12 @@ function Polls() {
 
             {isLoading && <p>Peilingen worden geladen...</p>}
 
+            {errorMessage && (
+                <p className="polls-error-message">
+                    {errorMessage}
+                </p>
+            )}
+
             <div className="polls-list">
                 {polls.map((poll) => (
                     <PollCard
@@ -91,7 +104,7 @@ function Polls() {
                 ))}
             </div>
         </PageLayout>
-    )
+    );
 }
 
 export default Polls;

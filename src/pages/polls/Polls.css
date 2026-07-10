@@ -24,6 +24,10 @@
     padding: 2rem;
 }
 
+.polls-error-message {
+    text-align: center;
+}
+
 /* Tablets */
 @media screen and (min-width: 710px) {
     .poll-answer-section {

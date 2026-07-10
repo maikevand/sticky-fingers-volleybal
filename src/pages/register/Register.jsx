@@ -6,6 +6,9 @@ import {useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
+
 const initialFormState = {
     email: "",
     password: "",
@@ -17,8 +20,6 @@ function Register() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
-    const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
     function handleFormChange(event) {
         const {name, value} = event.target;

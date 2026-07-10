@@ -5,8 +5,9 @@ import Button from "../../components/button/Button.jsx";
 import {useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import.meta.env.VITE_API_BASE_URL;
-import.meta.env.VITE_NOVI_PROJECT_ID;
+
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
 const initialFormState = {
     question: "",
@@ -19,8 +20,6 @@ function NewPoll() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
-    const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
     function handleFormChange(event) {
         const {name, value} = event.target;

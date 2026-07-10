@@ -5,11 +5,16 @@ import axios from "axios";
 import {addDays, format} from "date-fns";
 import {nl} from "date-fns/locale";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
+
 function PlayDates() {
     const [attendance, setAttendance] = useState({});
+    const [playDateAttendances, setPlayDateAttendances] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const today = new Date();
     const currentDay = today.getDay();
-    const [playDateAttendances, setPlayDateAttendances] = useState([]);
 
     let daysUntilFriday;
 
@@ -55,11 +60,11 @@ function PlayDates() {
         if (updatedTotalAttendance !== undefined) {
             try {
                 await axios.patch(
-                    `${import.meta.env.VITE_API_BASE_URL}/playDateAttendances/${matchingAttendance.id}`,
+                    `${baseUrl}/playDateAttendances/${matchingAttendance.id}`,
                     {totalAttendance: updatedTotalAttendance,},
                     {
                         headers: {
-                            "novi-education-project-id": import.meta.env.VITE_NOVI_PROJECT_ID,
+                            "novi-education-project-id": projectId,
                         },
                     }
                 );
@@ -73,14 +78,14 @@ function PlayDates() {
         if (!matchingAttendance && value === "yes") {
             try {
                 await axios.post(
-                    `${import.meta.env.VITE_API_BASE_URL}/playDateAttendances`,
+                    `${baseUrl}/playDateAttendances`,
                     {
                         date: playDate.date,
                         totalAttendance: 1
                     },
                     {
                         headers: {
-                            "novi-education-project-id": import.meta.env.VITE_NOVI_PROJECT_ID,
+                            "novi-education-project-id": projectId,
                         },
                     }
                 );
@@ -92,22 +97,35 @@ function PlayDates() {
         }
     }
 
-    async function fetchPlayDateAttendances() {
+    async function fetchPlayDateAttendances(signal) {
+        setIsLoading(true);
+        setErrorMessage("");
+
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/playDateAttendances`, {
+            const response = await axios.get(`${baseUrl}/playDateAttendances`, {
+                signal: signal,
                 headers: {
-                    "novi-education-project-id": import.meta.env.VITE_NOVI_PROJECT_ID,
+                    "novi-education-project-id": projectId,
                 },
             });
 
             setPlayDateAttendances(response.data);
         } catch (error) {
             console.error(error);
+            setErrorMessage("De totalen konden niet worden opgehaald.");
+        } finally {
+            setIsLoading(false);
         }
     }
 
     useEffect(() => {
-        fetchPlayDateAttendances();
+        const controller = new AbortController();
+
+        void fetchPlayDateAttendances(controller.signal);
+
+        return function cleanup() {
+            controller.abort();
+        };
     }, []);
 
     return (
@@ -115,6 +133,14 @@ function PlayDates() {
             <h1>Speeldata</h1>
             <p>📍 Gymzaal Eekbrouwersweg 2</p>
             <p>🕗 20:00-21:30</p>
+
+            {isLoading && <p>Laden...</p>}
+            {errorMessage && (
+                <p className="play-dates-error-message">
+                    {errorMessage}
+                </p>
+            )}
+
             <table className="play-dates-table">
                 <thead>
                 <tr>

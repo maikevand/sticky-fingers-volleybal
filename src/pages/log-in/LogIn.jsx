@@ -7,17 +7,18 @@ import {useState, useContext} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 const initialFormState = {
     email: "",
     password: "",
-}
+};
 
 function LogIn() {
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const {login} = useContext(AuthContext);
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
     function handleFormChange(event) {
         const {name, value} = event.target;
