@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.log-in-link {
+    color: var(--color-white);
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.register-page {

@@ -5,18 +5,14 @@ import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Profile() {
-    const {logout} = useContext(AuthContext);
+    const {logout, user, status} = useContext(AuthContext);
 
     return (
         <PageLayout className="profile-page">
             <h1>Profiel</h1>
             <section className="user-data-section">
-                <p><strong>Naam: </strong>
-                    <span>Voornaam Achternaam</span>
-                </p>
                 <p>
-                    <strong>E-mailadres:</strong>
-                    <span>emailadres@outlook.com</span>
+                    Je bent ingelogd met e-mailadres: <strong>{user?.email}</strong>
                 </p>
             </section>
             <Button
