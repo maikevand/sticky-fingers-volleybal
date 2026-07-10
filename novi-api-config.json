@@ -49,10 +49,39 @@
         "PATCH": ["anonymous", "user", "admin"],
         "DELETE": ["admin"]
       }
+    },
+    {
+      "name": "playDateAttendances",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "totalAttendance",
+          "type": "number",
+          "required": true,
+          "min": 0
+        }
+      ],
+      "permissions": {
+        "GET": ["anonymous", "user", "admin"],
+        "POST": ["anonymous", "user", "admin"],
+        "PUT": ["user", "admin"],
+        "PATCH": ["anonymous", "user", "admin"],
+        "DELETE": ["admin"]
+      }
     }
   ],
   "users": [],
   "data": {
-    "polls": []
+    "polls": [],
+    "playDateAttendances": []
   }
 }
