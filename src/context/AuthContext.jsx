@@ -34,11 +34,15 @@ function AuthContextProvider({children}) {
                 user: {
                     email: response.data.email,
                     id: response.data.id,
+                    roles: response.data.roles,
                 },
                 status: "done",
             });
 
         } catch (error) {
+            if (axios.isCancel(error) || error.name === "CanceledError") {
+                return;
+            }
             localStorage.removeItem("token");
             console.error(error);
             toggleIsAuth({
@@ -68,17 +72,10 @@ function AuthContextProvider({children}) {
         };
     }, []);
 
-    function login(userDetails) {
+    async function login(userDetails) {
         localStorage.setItem("token", userDetails.token);
-        toggleIsAuth({
-            isAuth: true,
-            user: {
-                email: userDetails.user.email,
-            },
-            status: "done",
-        });
 
-        void fetchUserData(userDetails.token);
+        await fetchUserData(userDetails.token);
         navigate('/profiel');
     }
 

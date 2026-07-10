@@ -30,6 +30,9 @@ function Polls() {
 
                 setPolls(response.data);
             } catch (error) {
+                if (axios.isCancel(error) || error.name === "CanceledError") {
+                    return;
+                }
                 console.error(error);
                 setErrorMessage("Peilingen konden niet worden opgehaald.");
             } finally {

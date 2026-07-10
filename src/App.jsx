@@ -16,11 +16,13 @@ import {useContext} from "react";
 import {AuthContext} from "./context/AuthContext.jsx";
 
 function App() {
-    const {isAuth, status} = useContext(AuthContext);
+    const {isAuth, status, user} = useContext(AuthContext);
 
     if (status === "pending") {
         return <p>Laden...</p>;
     }
+
+    const isUser = isAuth && user?.roles?.includes("user");
 
     return (
         <div className="page-layout">
@@ -30,18 +32,18 @@ function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/over-ons" element={<About/>}/>
                     <Route path="/contact" element={<Contact/>}/>
-                    <Route path="/voor-leden" element={<Members isAuthenticated={isAuth}/>}/>
+                    <Route path="/voor-leden" element={<Members isAuthenticated={isUser}/>}/>
                     <Route path="/speeldata"
-                           element={isAuth ? (<PlayDates/>) : (<Navigate to="/inloggen"/>)}/>
+                           element={isUser ? (<PlayDates/>) : (<Navigate to="/inloggen"/>)}/>
                     <Route path="/peilingen"
-                           element={isAuth ? (<Polls/>) : (<Navigate to="/inloggen"/>)}/>
+                           element={isUser ? (<Polls/>) : (<Navigate to="/inloggen"/>)}/>
                     <Route path="/nieuwe-peiling"
-                           element={isAuth ? (<NewPoll/>) : (<Navigate to="/inloggen"/>)}/>
+                           element={isUser ? (<NewPoll/>) : (<Navigate to="/inloggen"/>)}/>
                     <Route path="/inloggen"
-                           element={isAuth ? (<Navigate to="/profiel"/>) : (<LogIn/>)}/>
+                           element={isUser ? (<Navigate to="/profiel"/>) : (<LogIn/>)}/>
                     <Route path="/registreren" element={<Register/>}/>
                     <Route path="/profiel"
-                           element={isAuth ? (<Profile/>) : (<Navigate to="/"/>)}/>
+                           element={isUser ? (<Profile/>) : (<Navigate to="/"/>)}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </main>
