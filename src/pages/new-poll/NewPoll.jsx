@@ -16,6 +16,7 @@ function NewPoll() {
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
@@ -33,6 +34,7 @@ function NewPoll() {
 
     async function handleSubmit(event) {
         event.preventDefault();
+        setIsLoading(true);
 
         const pollData = {
             question: formState.question,
@@ -58,6 +60,8 @@ function NewPoll() {
             console.error(error);
             setIsSubmitted(false);
             setErrorMessage("Er ging iets mis. Probeer het opnieuw.");
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -102,7 +106,8 @@ function NewPoll() {
                 />
                 <Button
                     type="submit"
-                    text="Peiling aanmaken"
+                    text={isLoading ? "Verzenden...": "Peiling aanmaken"}
+                    disabled={isLoading}
                 />
             </form>
             {isSubmitted && (

@@ -77,11 +77,58 @@
         "PATCH": ["anonymous", "user", "admin"],
         "DELETE": ["admin"]
       }
+    },
+    {
+      "name": "contactMessages",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "type": "string",
+          "required": true,
+          "max": 35
+        },
+        {
+          "name": "lastName",
+          "type": "string",
+          "required": true,
+          "max": 35
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "required": true,
+          "max": 50
+        },
+        {
+          "name": "phoneNumber",
+          "type": "string",
+          "max": 13
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "required": true,
+          "max": 400
+        }
+      ],
+      "permissions": {
+        "GET": ["anonymous", "user", "admin"],
+        "POST": ["anonymous", "user", "admin"],
+        "PUT": ["user", "admin"],
+        "PATCH": ["anonymous", "user", "admin"],
+        "DELETE": ["admin"]
+      }
     }
   ],
   "users": [],
   "data": {
     "polls": [],
-    "playDateAttendances": []
+    "playDateAttendances": [],
+    "contactMessages": []
   }
 }

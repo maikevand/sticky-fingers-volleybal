@@ -3,6 +3,7 @@ import PageLayout from "../../components/page-layout/PageLayout.jsx";
 import Button from "../../components/button/Button.jsx"
 import FormField from "../../components/form-field/FormField.jsx";
 import {useState} from "react";
+import axios from "axios";
 
 const initialFormState = {
     firstName: "",
@@ -16,6 +17,9 @@ function Contact() {
     const [formState, setFormState] = useState(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
+    const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
     function handleFormChange(event) {
         const {name, value} = event.target;
@@ -31,9 +35,24 @@ function Contact() {
 
     async function handleSubmit(event) {
         event.preventDefault();
+        setIsLoading(true);
+
+        const messageData = {
+            firstName: formState.firstName,
+            lastName: formState.lastName,
+            email: formState.email,
+            phoneNumber: formState.phoneNumber,
+            message: formState.message,
+        };
 
         try {
-            console.log(formState);
+            const response = await axios.post(`${baseUrl}/contactMessages`, messageData,{
+                headers: {
+                    "novi-education-project-id": projectId,
+                },
+            });
+
+            console.log(response.data);
 
             setFormState(initialFormState);
             setIsSubmitted(true);
@@ -42,6 +61,8 @@ function Contact() {
             console.error(error);
             setIsSubmitted(false);
             setErrorMessage("Er ging iets mis bij het verzenden. Probeer het opnieuw.");
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -108,7 +129,8 @@ function Contact() {
                 />
                 <Button
                     type="submit"
-                    text="Verzenden"
+                    text={isLoading ? "Verzenden..." : "Verzenden"}
+                    disabled={isLoading}
                 />
             </form>
             {isSubmitted && (
