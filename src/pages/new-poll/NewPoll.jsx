@@ -55,8 +55,6 @@ function NewPoll() {
                 },
             });
 
-            console.log(response.data);
-
             setFormState(initialFormState);
             setIsSubmitted(true);
             setErrorMessage("");

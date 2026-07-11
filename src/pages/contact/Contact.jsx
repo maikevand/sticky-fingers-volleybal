@@ -53,8 +53,6 @@ function Contact() {
                 },
             });
 
-            console.log(response.data);
-
             setFormState(initialFormState);
             setIsSubmitted(true);
             setErrorMessage("");

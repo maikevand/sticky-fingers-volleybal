@@ -4,6 +4,7 @@ import PollCard from "../../components/poll-card/PollCard.jsx";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {compareDesc, parseISO} from "date-fns";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
@@ -28,7 +29,16 @@ function Polls() {
                     },
                 });
 
-                setPolls(response.data);
+                const latestPolls = [...response.data]
+                    .sort((pollA, pollB) =>
+                        compareDesc(
+                            parseISO(pollA.createdAt),
+                            parseISO(pollB.createdAt)
+                        )
+                    )
+                    .slice(0, 10);
+
+                setPolls(latestPolls);
             } catch (error) {
                 if (axios.isCancel(error) || error.name === "CanceledError") {
                     return;

@@ -8,6 +8,7 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 import axios from "axios";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
 const initialFormState = {
     email: "",
@@ -43,9 +44,13 @@ function LogIn() {
 
         try {
             const response = await axios.post(`${baseUrl}/login`, {
-                email: formState.email,
-                password: formState.password,
-            });
+                    email: formState.email,
+                    password: formState.password,
+                },
+                {
+                    headers: {"novi-education-project-id": projectId,},
+                }
+            );
 
             login(response.data);
 

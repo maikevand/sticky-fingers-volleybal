@@ -38,6 +38,7 @@ function PlayDates() {
 
     async function handleAttendanceChange(playDate, value) {
         const previousChoice = attendance[playDate.id];
+        const token = localStorage.getItem("token");
 
         setAttendance({
             ...attendance,
@@ -65,6 +66,7 @@ function PlayDates() {
                     {
                         headers: {
                             "novi-education-project-id": projectId,
+                            Authorization: `Bearer ${token}`,
                         },
                     }
                 );

@@ -114,7 +114,6 @@
           "admin"
         ],
         "PATCH": [
-          "anonymous",
           "user",
           "admin"
         ],
@@ -163,7 +162,6 @@
       ],
       "permissions": {
         "GET": [
-          "anonymous",
           "user",
           "admin"
         ],
@@ -190,7 +188,7 @@
   "users": [
     {
       "id": 1,
-      "email": "regular.user@example.com",
+      "email": "user.regular@example.com",
       "password": "regular123",
       "roles": [
         "anonymous",
@@ -199,7 +197,7 @@
     },
     {
       "id": 2,
-      "email": "another.user@example.com",
+      "email": "user.another@example.com",
       "password": "another123",
       "roles": [
         "anonymous",
@@ -208,8 +206,45 @@
     }
   ],
   "data": {
-    "polls": [],
-    "playDateAttendances": [],
+    "polls": [
+      {
+        "id": 1,
+        "firstName": "Anne",
+        "createdAt": "2026-07-11T10:30:00",
+        "question": "Wie wil er doorspelen in de vakantie?",
+        "optionOne": "Ja, leuk!",
+        "optionTwo": "Nee, ik ga in de zon liggen.",
+        "optionOneVotes": 3,
+        "optionTwoVotes": 4
+      },
+      {
+        "id": 2,
+        "firstName": "Michiel",
+        "createdAt": "2026-11-11T10:30:00",
+        "question": "Wie komt er naar het toernooi op 20 augustus?",
+        "optionOne": "Ik doe mee!",
+        "optionTwo": "Ik sla over.",
+        "optionOneVotes": 5,
+        "optionTwoVotes": 2
+      }
+    ],
+    "playDateAttendances": [
+      {
+        "id": 1,
+        "date": "2026-07-24",
+        "totalAttendance": 5
+      },
+      {
+        "id": 2,
+        "date": "2026-08-07",
+        "totalAttendance": 6
+      },
+      {
+        "id": 3,
+        "date": "2026-08-21",
+        "totalAttendance": 3
+      }
+    ],
     "contactMessages": []
   }
 }
