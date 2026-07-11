@@ -1,20 +1,22 @@
 import "./PlayDates.css";
 import PageLayout from "../../components/page-layout/PageLayout.jsx";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {addDays, format} from "date-fns";
 import {nl} from "date-fns/locale";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
 function PlayDates() {
     const [attendance, setAttendance] = useState({});
-    const [playDateAttendances, setPlayDateAttendances] = useState([]);
+    const [playDateVotes, setPlayDateVotes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const today = new Date();
     const currentDay = today.getDay();
+    const {user} = useContext(AuthContext);
 
     let daysUntilFriday;
 
@@ -37,7 +39,10 @@ function PlayDates() {
     });
 
     async function handleAttendanceChange(playDate, value) {
-        const previousChoice = attendance[playDate.id];
+        if (!user) {
+            return;
+        }
+
         const token = localStorage.getItem("token");
 
         setAttendance({
@@ -45,24 +50,22 @@ function PlayDates() {
             [playDate.id]: value,
         });
 
-        const matchingAttendance = playDateAttendances.find((attendance) => {
-            return attendance.date === playDate.date;
+        const matchingVote = playDateVotes.find((vote) => {
+            return (
+                vote.userId === user.id &&
+                vote.date === playDate.date
+            );
         });
 
-        let updatedTotalAttendance;
+        const isAttending = value === "yes";
 
-        if (value === "yes" && matchingAttendance && previousChoice !== "yes") {
-            updatedTotalAttendance = matchingAttendance.totalAttendance + 1;
-
-        } else if (value === "no" && matchingAttendance && previousChoice === "yes") {
-            updatedTotalAttendance = matchingAttendance.totalAttendance - 1;
-        }
-
-        if (updatedTotalAttendance !== undefined) {
+        if (!matchingVote) {
             try {
-                await axios.patch(
-                    `${baseUrl}/playDateAttendances/${matchingAttendance.id}`,
-                    {totalAttendance: updatedTotalAttendance,},
+                await axios.post(`${baseUrl}/playDateVotes`, {
+                        userId: user.id,
+                        date: playDate.date,
+                        attendance: isAttending,
+                    },
                     {
                         headers: {
                             "novi-education-project-id": projectId,
@@ -71,29 +74,28 @@ function PlayDates() {
                     }
                 );
 
-                await fetchPlayDateAttendances();
+                await fetchPlayDateVotes();
             } catch (error) {
                 console.error(error);
                 setErrorMessage("Je stem kon niet worden verwerkt.");
             }
         }
 
-        if (!matchingAttendance && value === "yes") {
+        if (matchingVote) {
             try {
-                await axios.post(
-                    `${baseUrl}/playDateAttendances`,
+                await axios.patch(`${baseUrl}/playDateVotes/${matchingVote.id}`,
                     {
-                        date: playDate.date,
-                        totalAttendance: 1
+                        attendance: isAttending,
                     },
                     {
                         headers: {
                             "novi-education-project-id": projectId,
+                            Authorization: `Bearer ${token}`,
                         },
                     }
                 );
 
-                await fetchPlayDateAttendances();
+                await fetchPlayDateVotes();
             } catch (error) {
                 console.error(error);
                 setErrorMessage("Je stem kon niet worden verwerkt.");
@@ -101,19 +103,19 @@ function PlayDates() {
         }
     }
 
-    async function fetchPlayDateAttendances(signal) {
+    async function fetchPlayDateVotes(signal) {
         setIsLoading(true);
         setErrorMessage("");
 
         try {
-            const response = await axios.get(`${baseUrl}/playDateAttendances`, {
+            const response = await axios.get(`${baseUrl}/playDateVotes`, {
                 signal: signal,
                 headers: {
                     "novi-education-project-id": projectId,
                 },
             });
 
-            setPlayDateAttendances(response.data);
+            setPlayDateVotes(response.data);
         } catch (error) {
             if (axios.isCancel(error) || error.name === "CanceledError") {
                 return;
@@ -128,7 +130,7 @@ function PlayDates() {
     useEffect(() => {
         const controller = new AbortController();
 
-        void fetchPlayDateAttendances(controller.signal);
+        void fetchPlayDateVotes(controller.signal);
 
         return function cleanup() {
             controller.abort();
@@ -158,9 +160,29 @@ function PlayDates() {
                 </thead>
                 <tbody>
                 {playDates.map((playDate) => {
-                    const matchingAttendance = playDateAttendances.find((attendance) => {
-                        return attendance.date === playDate.date;
+                    const votesForThisDate = playDateVotes.filter((vote) => {
+                        return (
+                            vote.date === playDate.date &&
+                            vote.attendance === true
+                        );
                     });
+
+                    const totalAttendance = votesForThisDate.length;
+
+                    const userVoteForThisDate = playDateVotes.find((vote) => {
+                        return (
+                            vote.userId === user?.id &&
+                            vote.date === playDate.date
+                        );
+                    });
+
+                    const selectedAttendance =
+                        attendance[playDate.id] ??
+                        (userVoteForThisDate?.attendance === true
+                            ? "yes"
+                            : userVoteForThisDate?.attendance === false
+                                ? "no"
+                                : undefined);
 
                     return (
                         <tr key={playDate.id}>
@@ -168,14 +190,14 @@ function PlayDates() {
                             <td>
                                 <div className="attendance-options">
                                     <button
-                                        className={attendance[playDate.id] === "yes" ? "attendance-selected" : "attendance-inactive"}
+                                        className={selectedAttendance === "yes" ? "attendance-selected" : "attendance-inactive"}
                                         type="button"
                                         onClick={() => handleAttendanceChange(playDate, "yes")}
                                     >
                                         Ja
                                     </button>
                                     <button
-                                        className={attendance[playDate.id] === "no" ? "attendance-selected" : "attendance-inactive"}
+                                        className={selectedAttendance === "no" ? "attendance-selected" : "attendance-inactive"}
                                         type="button"
                                         onClick={() => handleAttendanceChange(playDate, "no")}
                                     >
@@ -183,7 +205,7 @@ function PlayDates() {
                                     </button>
                                 </div>
                             </td>
-                            <td>{matchingAttendance ? matchingAttendance.totalAttendance : 0}</td>
+                            <td>{totalAttendance}</td>
                         </tr>
                     );
                 })}

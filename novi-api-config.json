@@ -123,6 +123,54 @@
       }
     },
     {
+      "name": "playDateVotes",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "userId",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "attendance",
+          "type": "boolean",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
+      }
+    },
+    {
       "name": "contactMessages",
       "fields": [
         {
@@ -245,6 +293,20 @@
         "totalAttendance": 3
       }
     ],
-    "contactMessages": []
+    "contactMessages": [],
+    "playDateVotes": [
+      {
+        "id": 1,
+        "userId": 1,
+        "date": "2026-07-24",
+        "attendance": true
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "date": "2026-07-24",
+        "attendance": true
+      }
+    ]
   }
 }
