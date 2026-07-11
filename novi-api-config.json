@@ -39,18 +39,6 @@
           "required": true,
           "min": 1,
           "max": 45
-        },
-        {
-          "name": "optionOneVotes",
-          "type": "number",
-          "required": true,
-          "min": 0
-        },
-        {
-          "name": "optionTwoVotes",
-          "type": "number",
-          "required": true,
-          "min": 0
         }
       ],
       "permissions": {
@@ -70,6 +58,54 @@
         ],
         "PATCH": [
           "anonymous",
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "name": "pollVotes",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "userId",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pollId",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "selectedOption",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
           "user",
           "admin"
         ],
@@ -261,9 +297,7 @@
         "createdAt": "2026-07-11T10:30:00",
         "question": "Wie wil er doorspelen in de vakantie?",
         "optionOne": "Ja, leuk!",
-        "optionTwo": "Nee, ik ga in de zon liggen.",
-        "optionOneVotes": 3,
-        "optionTwoVotes": 4
+        "optionTwo": "Nee, ik ga in de zon liggen."
       },
       {
         "id": 2,
@@ -271,9 +305,15 @@
         "createdAt": "2026-11-11T10:30:00",
         "question": "Wie komt er naar het toernooi op 20 augustus?",
         "optionOne": "Ik doe mee!",
-        "optionTwo": "Ik sla over.",
-        "optionOneVotes": 5,
-        "optionTwoVotes": 2
+        "optionTwo": "Ik sla over."
+      }
+    ],
+    "pollVotes": [
+      {
+        "id": 1,
+        "userId": 1,
+        "pollId": 1,
+        "selectedOption": "optionOne"
       }
     ],
     "playDateAttendances": [

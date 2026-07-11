@@ -3,7 +3,7 @@ import Button from "../button/Button.jsx";
 import {useState} from "react";
 import { format, parseISO } from "date-fns";
 
-function PollCard({poll, onVote}) {
+function PollCard({poll, onVote, optionOneVotes, optionTwoVotes}) {
     const [selectedOptionId, setSelectedOptionId] = useState("");
     const [localErrorMessage, setLocalErrorMessage] = useState("");
 
@@ -40,7 +40,7 @@ function PollCard({poll, onVote}) {
                             className="poll-answer-section"
                         >
                             <span className="poll-question">{poll.optionOne}</span>
-                            <span className="poll-votes">{poll.optionOneVotes} stemmen</span>
+                            <span className="poll-votes">{optionOneVotes} stemmen</span>
                         </label>
                     </li>
                     <li>
@@ -58,7 +58,7 @@ function PollCard({poll, onVote}) {
                             className="poll-answer-section"
                         >
                             <span className="poll-question">{poll.optionTwo}</span>
-                            <span className="poll-votes">{poll.optionTwoVotes} stemmen</span>
+                            <span className="poll-votes">{optionTwoVotes} stemmen</span>
                         </label>
                     </li>
                 </ul>
