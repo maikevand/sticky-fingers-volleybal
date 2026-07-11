@@ -33,8 +33,9 @@
 
     .user-data-section p {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 5rem;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }

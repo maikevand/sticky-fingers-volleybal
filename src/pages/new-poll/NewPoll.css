@@ -1,7 +1,11 @@
-.new-poll-form > :nth-last-child(2) {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+.poll-success-message,
+.poll-error-message,
+.poll-success-section {
+    text-align: center;
+}
+
+.polls-link {
+    color: var(--color-white)
 }
 
 /* Kleine computerschermen */

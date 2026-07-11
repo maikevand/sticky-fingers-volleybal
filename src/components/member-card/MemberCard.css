@@ -1,0 +1,19 @@
+.member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.disabled-member-card {
+    color: var(--color-secondary-light);
+}
+
+.active-member-card {
+    color: var(--color-primary);
+}
+
+.member-card-icon {
+    width: 5rem;
+    height: 5rem;
+}

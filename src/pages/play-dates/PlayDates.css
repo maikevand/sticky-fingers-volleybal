@@ -47,6 +47,10 @@
     border: 2px solid var(--color-primary);
 }
 
+.play-dates-error-message {
+    text-align: center;
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.play-dates-page {

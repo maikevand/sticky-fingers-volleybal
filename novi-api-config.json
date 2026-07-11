@@ -1,0 +1,352 @@
+{
+  "collections": [
+    {
+      "name": "polls",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "type": "string",
+          "required": true,
+          "max": 30
+        },
+        {
+          "name": "createdAt",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "question",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 70
+        },
+        {
+          "name": "optionOne",
+          "type": "string",
+          "required": true,
+          "min": 1,
+          "max": 45
+        },
+        {
+          "name": "optionTwo",
+          "type": "string",
+          "required": true,
+          "min": 1,
+          "max": 45
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "name": "pollVotes",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "userId",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pollId",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "selectedOption",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "name": "playDateAttendances",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "totalAttendance",
+          "type": "number",
+          "required": true,
+          "min": 0
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "name": "playDateVotes",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "userId",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "attendance",
+          "type": "boolean",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "name": "contactMessages",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "type": "string",
+          "required": true,
+          "max": 35
+        },
+        {
+          "name": "lastName",
+          "type": "string",
+          "required": true,
+          "max": 35
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "required": true,
+          "max": 50
+        },
+        {
+          "name": "phoneNumber",
+          "type": "string",
+          "max": 13
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "required": true,
+          "max": 400
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "user.regular@example.com",
+      "password": "regular123",
+      "roles": [
+        "anonymous",
+        "user"
+      ]
+    },
+    {
+      "id": 2,
+      "email": "user.another@example.com",
+      "password": "another123",
+      "roles": [
+        "anonymous",
+        "user"
+      ]
+    }
+  ],
+  "data": {
+    "polls": [
+      {
+        "id": 1,
+        "firstName": "Anne",
+        "createdAt": "2026-07-11T10:30:00",
+        "question": "Wie wil er doorspelen in de vakantie?",
+        "optionOne": "Ja, leuk!",
+        "optionTwo": "Nee, ik ga in de zon liggen."
+      },
+      {
+        "id": 2,
+        "firstName": "Michiel",
+        "createdAt": "2026-11-11T10:30:00",
+        "question": "Wie komt er naar het toernooi op 20 augustus?",
+        "optionOne": "Ik doe mee!",
+        "optionTwo": "Ik sla over."
+      }
+    ],
+    "pollVotes": [
+      {
+        "id": 1,
+        "userId": 1,
+        "pollId": 1,
+        "selectedOption": "optionOne"
+      }
+    ],
+    "playDateAttendances": [
+      {
+        "id": 1,
+        "date": "2026-07-24",
+        "totalAttendance": 5
+      },
+      {
+        "id": 2,
+        "date": "2026-08-07",
+        "totalAttendance": 6
+      },
+      {
+        "id": 3,
+        "date": "2026-08-21",
+        "totalAttendance": 3
+      }
+    ],
+    "contactMessages": [],
+    "playDateVotes": [
+      {
+        "id": 1,
+        "userId": 1,
+        "date": "2026-07-24",
+        "attendance": true
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "date": "2026-07-24",
+        "attendance": true
+      }
+    ]
+  }
+}

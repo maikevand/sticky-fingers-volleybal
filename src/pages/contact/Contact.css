@@ -1,3 +1,7 @@
+.contact-success-message,
+.contact-error-message {
+    text-align: center;
+}
 
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
@@ -5,7 +9,7 @@
         background-image:
         url("../../assets/backgrounds/desktop-waving-woman-background.png");
         background-size: cover;
-        background-position: center bottom;
+        background-position: right bottom;
     }
 
     .contact-page .page-content {

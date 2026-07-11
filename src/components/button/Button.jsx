@@ -7,7 +7,6 @@ function Button({type, text, onClick, disabled = false}) {
             className="button"
             onClick={onClick}
             disabled={disabled}>
-            {/*ev. variant primary toevoegen voor verschillende opmaak? Zie uitwerkingen react blog part 2*/}
             {text}
         </button>
     );

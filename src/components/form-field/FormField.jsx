@@ -1,17 +1,20 @@
 import "./FormField.css"
 
-function FormField({htmlFor, text, type, id, name, placeholder, maxLength}) {
+function FormField({label, type, id, name, value, placeholder, maxLength, changeHandler, required=false}) {
     return (
         <label
-            htmlFor={htmlFor}
+            htmlFor={id}
             className="form-field">
-            {text}
+            {label}
             <input
                 type={type}
                 id={id}
                 name={name}
-                maxLength={maxLength}
+                value={value}
                 placeholder={placeholder}
+                maxLength={maxLength}
+                onChange={changeHandler}
+                required={required}
             />
         </label>
     );
