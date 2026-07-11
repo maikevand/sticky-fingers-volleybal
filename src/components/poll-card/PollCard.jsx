@@ -1,6 +1,7 @@
 import "./PollCard.css";
 import Button from "../button/Button.jsx";
 import {useState} from "react";
+import { format, parseISO } from "date-fns";
 
 function PollCard({poll, onVote}) {
     const [selectedOptionId, setSelectedOptionId] = useState("");
@@ -21,6 +22,7 @@ function PollCard({poll, onVote}) {
     return (
         <article className="poll-card">
             <h2>{poll.question}</h2>
+            <p>Geplaatst door {poll.firstName} op {format(parseISO(poll.createdAt), "dd-MM-yyyy")}</p>
             <form className="poll-form" onSubmit={handleSubmit}>
                 <ul className="poll-options">
                     <li>

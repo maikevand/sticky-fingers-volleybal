@@ -10,6 +10,7 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const projectId = import.meta.env.VITE_NOVI_PROJECT_ID;
 
 const initialFormState = {
+    firstName: "",
     question: "",
     optionOne: "",
     optionTwo: "",
@@ -38,6 +39,8 @@ function NewPoll() {
         setIsLoading(true);
 
         const pollData = {
+            firstName: formState.firstName,
+            createdAt: new Date().toISOString(),
             question: formState.question,
             optionOne: formState.optionOne,
             optionTwo: formState.optionTwo,
@@ -70,6 +73,16 @@ function NewPoll() {
         <PageLayout className="new-poll-page">
             <h1>Nieuwe peiling</h1>
             <form className="new-poll-form" onSubmit={handleSubmit}>
+                <FormField
+                    label="Voornaam *"
+                    type="text"
+                    id="poll-first-name-field"
+                    name="firstName"
+                    value={formState.firstName}
+                    maxLength={30}
+                    changeHandler={handleFormChange}
+                    required={true}
+                />
                 <label htmlFor="poll-question-field" className="textarea-label">
                     Vraag
                 </label>

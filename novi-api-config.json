@@ -9,6 +9,17 @@
           "required": true
         },
         {
+          "name": "firstName",
+          "type": "string",
+          "required": true,
+          "max": 30
+        },
+        {
+          "name": "createdAt",
+          "type": "date",
+          "required": true
+        },
+        {
           "name": "question",
           "type": "string",
           "required": true,
@@ -43,11 +54,28 @@
         }
       ],
       "permissions": {
-        "GET": ["anonymous", "user", "admin"],
-        "POST": ["anonymous", "user", "admin"],
-        "PUT": ["user", "admin"],
-        "PATCH": ["anonymous", "user", "admin"],
-        "DELETE": ["admin"]
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
       }
     },
     {
@@ -71,11 +99,28 @@
         }
       ],
       "permissions": {
-        "GET": ["anonymous", "user", "admin"],
-        "POST": ["anonymous", "user", "admin"],
-        "PUT": ["user", "admin"],
-        "PATCH": ["anonymous", "user", "admin"],
-        "DELETE": ["admin"]
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
       }
     },
     {
@@ -117,11 +162,28 @@
         }
       ],
       "permissions": {
-        "GET": ["anonymous", "user", "admin"],
-        "POST": ["anonymous", "user", "admin"],
-        "PUT": ["user", "admin"],
-        "PATCH": ["anonymous", "user", "admin"],
-        "DELETE": ["admin"]
+        "GET": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "POST": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "PUT": [
+          "user",
+          "admin"
+        ],
+        "PATCH": [
+          "anonymous",
+          "user",
+          "admin"
+        ],
+        "DELETE": [
+          "admin"
+        ]
       }
     }
   ],
