@@ -54,7 +54,6 @@ function Polls() {
                 if (axios.isCancel(error) || error.name === "CanceledError") {
                     return;
                 }
-                console.error(error);
                 setErrorMessage("Peilingen konden niet worden opgehaald.");
             } finally {
                 setIsLoading(false);
@@ -104,8 +103,7 @@ function Polls() {
                 ...currentVotes,
                 response.data,
             ]);
-        } catch (error) {
-            console.error(error);
+        } catch {
             setErrorMessage("Stem kon niet worden ingediend. Probeer opnieuw.");
         }
     }

@@ -75,8 +75,7 @@ function PlayDates() {
                 );
 
                 await fetchPlayDateVotes();
-            } catch (error) {
-                console.error(error);
+            } catch {
                 setErrorMessage("Je stem kon niet worden verwerkt.");
             }
         }
@@ -96,8 +95,7 @@ function PlayDates() {
                 );
 
                 await fetchPlayDateVotes();
-            } catch (error) {
-                console.error(error);
+            } catch {
                 setErrorMessage("Je stem kon niet worden verwerkt.");
             }
         }
@@ -120,7 +118,6 @@ function PlayDates() {
             if (axios.isCancel(error) || error.name === "CanceledError") {
                 return;
             }
-            console.error(error);
             setErrorMessage("De totalen konden niet worden opgehaald.");
         } finally {
             setIsLoading(false);

@@ -11,9 +11,9 @@
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.new-poll-page {
-        background-image: url("../../assets/backgrounds/desktop-poll.png");
+        background-image: url("../../assets/backgrounds/desktop-poll.webp");
         background-size: cover;
-        background-position: center 30%;
+        background-position: left 30%;
     }
 
     .new-poll-page {

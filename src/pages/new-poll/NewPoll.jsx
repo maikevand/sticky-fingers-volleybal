@@ -49,7 +49,7 @@ function NewPoll() {
         };
 
         try {
-            const response = await axios.post(`${baseUrl}/polls`, pollData, {
+            await axios.post(`${baseUrl}/polls`, pollData, {
                 headers: {
                     "novi-education-project-id": projectId,
                 },
@@ -58,8 +58,7 @@ function NewPoll() {
             setFormState(initialFormState);
             setIsSubmitted(true);
             setErrorMessage("");
-        } catch (error) {
-            console.error(error);
+        } catch {
             setIsSubmitted(false);
             setErrorMessage("Er ging iets mis. Probeer het opnieuw.");
         } finally {

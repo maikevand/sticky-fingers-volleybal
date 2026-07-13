@@ -47,7 +47,7 @@
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.polls-page {
-        background-image: url("../../assets/backgrounds/desktop-net-only.png");
+        background-image: url("../../assets/backgrounds/desktop-net-only.webp");
         background-size: cover;
         background-position: center 30%;
     }

@@ -319,18 +319,15 @@
     "playDateAttendances": [
       {
         "id": 1,
-        "date": "2026-07-24",
-        "totalAttendance": 5
+        "date": "2026-07-24"
       },
       {
         "id": 2,
-        "date": "2026-08-07",
-        "totalAttendance": 6
+        "date": "2026-08-07"
       },
       {
         "id": 3,
-        "date": "2026-08-21",
-        "totalAttendance": 3
+        "date": "2026-08-21"
       }
     ],
     "contactMessages": [],

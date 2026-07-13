@@ -54,9 +54,9 @@
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.play-dates-page {
-        background-image: url("../../assets/backgrounds/desktop-dates.png");
+        background-image: url("../../assets/backgrounds/desktop-dates.webp");
         background-size: cover;
-        background-position: center 30%;
+        background-position: right 30%;
     }
 
     .play-dates-page {

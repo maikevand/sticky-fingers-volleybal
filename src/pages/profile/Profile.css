@@ -12,9 +12,9 @@
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.profile-page {
-        background-image: url("../../assets/backgrounds/desktop-checklist-left.png");
+        background-image: url("../../assets/backgrounds/desktop-checklist-left.webp");
         background-size: cover;
-        background-position: center 30%;
+        background-position: left 30%;
     }
 
     .profile-page {
