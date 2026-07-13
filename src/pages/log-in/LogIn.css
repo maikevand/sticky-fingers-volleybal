@@ -1,5 +1,5 @@
 .register-link {
-    color:var(--color-white);
+    color: var(--color-white);
 }
 
 .log-in-success-message,
@@ -21,7 +21,7 @@
         align-items: flex-start;
     }
 
-    .log-in-page .page-content  {
+    .log-in-page .page-content {
         margin: 8rem 12rem;
     }
 }

@@ -33,14 +33,13 @@
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .home-page {
-        background-image:
-                linear-gradient(
-                        to right,
-                        rgba(95, 120, 155, 0.18) 0%,
-                        rgba(65, 90, 130, 0.25) 45%,
-                        rgba(29, 31, 62, 0.58) 100%
-                ),
-                url("../../assets/backgrounds/desktop-volleyball-net.jpg");
+        background-image: linear-gradient(
+                to right,
+                rgba(95, 120, 155, 0.18) 0%,
+                rgba(65, 90, 130, 0.25) 45%,
+                rgba(29, 31, 62, 0.58) 100%
+        ),
+        url("../../assets/backgrounds/desktop-volleyball-net.jpg");
         background-size: cover;
         background-position: center;
 

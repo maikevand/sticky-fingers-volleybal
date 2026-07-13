@@ -21,7 +21,7 @@
         align-items: flex-start;
     }
 
-    .register-page .page-content  {
+    .register-page .page-content {
         display: flex;
         flex-direction: column;
         flex-grow: 1;

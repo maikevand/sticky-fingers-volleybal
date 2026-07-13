@@ -47,7 +47,7 @@ function Contact() {
         };
 
         try {
-            await axios.post(`${baseUrl}/contactMessages`, messageData,{
+            await axios.post(`${baseUrl}/contactMessages`, messageData, {
                 headers: {
                     "novi-education-project-id": projectId,
                 },

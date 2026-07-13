@@ -1,7 +1,7 @@
 import "./PollCard.css";
 import Button from "../button/Button.jsx";
 import {useState} from "react";
-import { format, parseISO } from "date-fns";
+import {format, parseISO} from "date-fns";
 
 function PollCard({poll, onVote, optionOneVotes, optionTwoVotes}) {
     const [selectedOptionId, setSelectedOptionId] = useState("");

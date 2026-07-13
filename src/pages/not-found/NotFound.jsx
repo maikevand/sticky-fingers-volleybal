@@ -7,7 +7,7 @@ function NotFound() {
         <PageLayout className="not-found-page">
             <h1>Deze pagina bestaat niet</h1>
             <p>Oeps, er ging iets mis...</p>
-                <p>Klik <Link className="not-found-link" to="/">hier</Link> om terug te keren naar de startpagina.</p>
+            <p>Klik <Link className="not-found-link" to="/">hier</Link> om terug te keren naar de startpagina.</p>
         </PageLayout>
     );
 }

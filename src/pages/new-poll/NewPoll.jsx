@@ -117,18 +117,18 @@ function NewPoll() {
                 />
                 <Button
                     type="submit"
-                    text={isLoading ? "Verzenden...": "Peiling aanmaken"}
+                    text={isLoading ? "Verzenden..." : "Peiling aanmaken"}
                     disabled={isLoading}
                 />
             </form>
             {isSubmitted && (
                 <div className="poll-success-section">
-                <p className="poll-success-message">
-                    Bedankt! Je peiling is aangemaakt.
-                </p>
-                <p>
-                    Klik <Link className="polls-link" to="/peilingen">hier</Link> om naar het overzicht te gaan.
-                </p>
+                    <p className="poll-success-message">
+                        Bedankt! Je peiling is aangemaakt.
+                    </p>
+                    <p>
+                        Klik <Link className="polls-link" to="/peilingen">hier</Link> om naar het overzicht te gaan.
+                    </p>
                 </div>
             )}
 

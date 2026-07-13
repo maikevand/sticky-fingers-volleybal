@@ -22,7 +22,7 @@ function AuthContextProvider({children}) {
 
         try {
             const response = await axios.get(`${baseUrl}/users/${userId}`, {
-                signal: signal,
+                    signal: signal,
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,

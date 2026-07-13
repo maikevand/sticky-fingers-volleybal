@@ -5,13 +5,12 @@
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.about-page {
-        background-image:
-                linear-gradient(
-                        to right,
-                        rgba(105, 130, 165, 0.22) 0%,
-                        rgba(75, 105, 145, 0.28) 55%,
-                        rgba(45, 60, 95, 0.42) 100%
-                ),
+        background-image: linear-gradient(
+                to right,
+                rgba(105, 130, 165, 0.22) 0%,
+                rgba(75, 105, 145, 0.28) 55%,
+                rgba(45, 60, 95, 0.42) 100%
+        ),
         url("../../assets/backgrounds/desktop-volleyball-background-with-clublogo.webp");
         background-size: cover;
         background-position: center;

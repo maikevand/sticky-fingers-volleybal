@@ -23,7 +23,7 @@
         align-items: flex-start;
     }
 
-    .profile-page .page-content  {
+    .profile-page .page-content {
         display: flex;
         flex-direction: column;
         flex-grow: 1;

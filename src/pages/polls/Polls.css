@@ -52,7 +52,7 @@
         background-position: center 30%;
     }
 
-    .polls-page .page-content{
+    .polls-page .page-content {
         display: flex;
         flex-direction: row;
         justify-content: center;
