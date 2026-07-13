@@ -81,7 +81,7 @@ function NewPoll() {
                     required={true}
                 />
                 <label htmlFor="poll-question-field" className="textarea-label">
-                    Vraag
+                    Vraag *
                 </label>
                 <textarea
                     name="question"
@@ -96,7 +96,7 @@ function NewPoll() {
                 />
 
                 <FormField
-                    label="Antwoordoptie 1"
+                    label="Antwoordoptie 1 *"
                     type="text"
                     id="poll-option1-field"
                     name="optionOne"
@@ -106,7 +106,7 @@ function NewPoll() {
                     required={true}
                 />
                 <FormField
-                    label="Antwoordoptie 2"
+                    label="Antwoordoptie 2 *"
                     type="text"
                     id="poll-option2-field"
                     name="optionTwo"

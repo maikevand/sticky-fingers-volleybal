@@ -5,7 +5,7 @@ import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Profile() {
-    const {logout, user, status} = useContext(AuthContext);
+    const {logout, user} = useContext(AuthContext);
 
     return (
         <PageLayout className="profile-page">
