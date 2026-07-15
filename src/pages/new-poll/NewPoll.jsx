@@ -80,20 +80,22 @@ function NewPoll() {
                     changeHandler={handleFormChange}
                     required={true}
                 />
-                <label htmlFor="poll-question-field" className="textarea-label">
-                    Vraag *
-                </label>
-                <textarea
-                    name="question"
-                    id="poll-question-field"
-                    value={formState.question}
-                    onChange={handleFormChange}
-                    cols={34}
-                    rows={2}
-                    maxLength={70}
-                    required={true}
-                    placeholder="Wie wil doorspelen in de kerstvakantie?"
-                />
+                <div>
+                    <label htmlFor="poll-question-field" className="textarea-label">
+                        Vraag *
+                    </label>
+                    <textarea
+                        name="question"
+                        id="poll-question-field"
+                        value={formState.question}
+                        onChange={handleFormChange}
+                        cols={34}
+                        rows={2}
+                        maxLength={70}
+                        required={true}
+                        placeholder="Wie wil doorspelen in de kerstvakantie?"
+                    />
+                </div>
 
                 <FormField
                     label="Antwoordoptie 1 *"

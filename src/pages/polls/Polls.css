@@ -26,6 +26,7 @@
 
 .polls-error-message {
     text-align: center;
+    width: 100%;
 }
 
 /* Tablets */
@@ -64,6 +65,8 @@
 
     .polls-title-section {
         width: 40%;
+        display: flex;
+        flex-direction: column;
     }
 
     .polls-list {

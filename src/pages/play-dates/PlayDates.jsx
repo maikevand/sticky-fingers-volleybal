@@ -76,7 +76,7 @@ function PlayDates() {
 
                 await fetchPlayDateVotes();
             } catch {
-                setErrorMessage("Je stem kon niet worden verwerkt.");
+                setErrorMessage("Je keuze kon niet worden verwerkt.");
             }
         }
 
@@ -96,7 +96,7 @@ function PlayDates() {
 
                 await fetchPlayDateVotes();
             } catch {
-                setErrorMessage("Je stem kon niet worden verwerkt.");
+                setErrorMessage("Je keuze kon niet worden verwerkt.");
             }
         }
     }
@@ -118,7 +118,7 @@ function PlayDates() {
             if (axios.isCancel(error) || error.name === "CanceledError") {
                 return;
             }
-            setErrorMessage("De totalen konden niet worden opgehaald.");
+            setErrorMessage("De totalen konden niet worden opgehaald. Probeer het later opnieuw.");
         } finally {
             setIsLoading(false);
         }
