@@ -30,6 +30,16 @@
     gap: 1rem;
 }
 
+/* Tablets */
+@media screen and (min-width: 768px) {
+    .home-message {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .home-page {

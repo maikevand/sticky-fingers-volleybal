@@ -18,6 +18,15 @@
     gap: 1rem;
 }
 
+/* Tablets */
+@media screen and (min-width: 768px) {
+    .members-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.members-page {

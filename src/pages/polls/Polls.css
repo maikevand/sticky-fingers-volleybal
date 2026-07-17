@@ -43,6 +43,12 @@
         align-items: center;
         flex-shrink: 0;
     }
+
+    .polls-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
 }
 
 /* Kleine computerschermen */

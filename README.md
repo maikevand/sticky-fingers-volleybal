@@ -1,4 +1,4 @@
-# Website V.C. Sticky Fingers
+# Website V.C. Sticky Fingers 
 
 ## Inhoudsopgave
 
@@ -13,12 +13,12 @@
 
 Volleybalclub Sticky Fingers heeft een nieuwe website ontwikkeld! Hiermee willen we nieuwe leden gemakkelijker
 bereiken en enthousiasmeren om zich bij onze gezellige club aan te sluiten. Met behulp van het contactformulier kunnen
-geïnteresseerden een vraag stellen of een verzoek doen om een keer op proef mee te spelen. Ook kan er een account
+geïnteresseerden een vraag stellen of een verzoek doen om op proef mee te spelen. Ook kan er een account
 aangemaakt worden waarmee je toegang krijgt tot het ledengedeelte van de website. Binnen dit ledengedeelte
 inventariseren we hoeveel spelers er op de komende
 speelavonden (elke vrijdag) aanwezig zullen zijn. Tenslotte kunnen er peilingen worden ingevuld. Hiermee organiseren we
 o.a.
-periodiek een gezellig etentje of een andere gezamenlijke activiteit. Lees verder hoe je gemakkelijk
+periodiek een gezellig etentje of een andere gezamenlijke activiteit. Lees verder hoe je 
 zelf een kijkje kan nemen op onze nieuwe website.
 
 ## 2. Screenshot
