@@ -26,6 +26,7 @@
 
 .polls-error-message {
     text-align: center;
+    width: 100%;
 }
 
 /* Tablets */
@@ -42,17 +43,23 @@
         align-items: center;
         flex-shrink: 0;
     }
+
+    .polls-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
 }
 
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.polls-page {
-        background-image: url("../../assets/backgrounds/desktop-net-only.png");
+        background-image: url("../../assets/backgrounds/desktop-net-only.webp");
         background-size: cover;
         background-position: center 30%;
     }
 
-    .polls-page .page-content{
+    .polls-page .page-content {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -64,6 +71,8 @@
 
     .polls-title-section {
         width: 40%;
+        display: flex;
+        flex-direction: column;
     }
 
     .polls-list {

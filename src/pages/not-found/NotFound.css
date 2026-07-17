@@ -6,10 +6,19 @@
     text-decoration: none;
 }
 
+/* Tablets */
+@media screen and (min-width: 768px) {
+    .not-found-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.not-found-page {
-        background-image: url("../../assets/backgrounds/desktop-net-only.png");
+        background-image: url("../../assets/backgrounds/desktop-net-only.webp");
         background-size: cover;
         background-position: center 30%;
 
@@ -18,7 +27,7 @@
         align-items: flex-start;
     }
 
-    .not-found-page .page-content  {
+    .not-found-page .page-content {
         margin-top: 4rem;
     }
 }

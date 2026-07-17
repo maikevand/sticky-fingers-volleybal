@@ -1,12 +1,10 @@
 import "./Navigation.css";
 import {NavLink} from "react-router-dom";
 import {Link} from "react-router-dom";
-// import {useNavigate} from "react-router-dom";
 import VolleyballIcon from "../../assets/volleyball-icon.svg?react";
 import UserIcon from "../../assets/user-icon.svg?react";
 
 function Navigation() {
-    // const navigate = useNavigate();
     return (
         <nav className="main-navigation">
             <div className="nav-logo-container">

@@ -8,12 +8,21 @@
     color: var(--color-white)
 }
 
+/* Tablets */
+@media screen and (min-width: 768px) {
+    .new-poll-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.new-poll-page {
-        background-image: url("../../assets/backgrounds/desktop-poll.png");
+        background-image: url("../../assets/backgrounds/desktop-poll.webp");
         background-size: cover;
-        background-position: center 30%;
+        background-position: left 30%;
     }
 
     .new-poll-page {

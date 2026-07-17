@@ -22,7 +22,7 @@ function AuthContextProvider({children}) {
 
         try {
             const response = await axios.get(`${baseUrl}/users/${userId}`, {
-                signal: signal,
+                    signal: signal,
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
@@ -44,7 +44,6 @@ function AuthContextProvider({children}) {
                 return;
             }
             localStorage.removeItem("token");
-            console.error(error);
             toggleIsAuth({
                 isAuth: false,
                 user: null,
@@ -76,7 +75,7 @@ function AuthContextProvider({children}) {
         localStorage.setItem("token", userDetails.token);
 
         await fetchUserData(userDetails.token);
-        navigate('/profiel');
+        navigate("/profiel");
     }
 
     function logout() {
@@ -87,7 +86,7 @@ function AuthContextProvider({children}) {
             user: null,
             status: "done",
         });
-        navigate('/');
+        navigate("/");
     }
 
     const contextData = {

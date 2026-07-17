@@ -49,7 +49,7 @@ function NewPoll() {
         };
 
         try {
-            const response = await axios.post(`${baseUrl}/polls`, pollData, {
+            await axios.post(`${baseUrl}/polls`, pollData, {
                 headers: {
                     "novi-education-project-id": projectId,
                 },
@@ -58,8 +58,7 @@ function NewPoll() {
             setFormState(initialFormState);
             setIsSubmitted(true);
             setErrorMessage("");
-        } catch (error) {
-            console.error(error);
+        } catch {
             setIsSubmitted(false);
             setErrorMessage("Er ging iets mis. Probeer het opnieuw.");
         } finally {
@@ -81,23 +80,25 @@ function NewPoll() {
                     changeHandler={handleFormChange}
                     required={true}
                 />
-                <label htmlFor="poll-question-field" className="textarea-label">
-                    Vraag
-                </label>
-                <textarea
-                    name="question"
-                    id="poll-question-field"
-                    value={formState.question}
-                    onChange={handleFormChange}
-                    cols={34}
-                    rows={2}
-                    maxLength={70}
-                    required={true}
-                    placeholder="Wie wil doorspelen in de kerstvakantie?"
-                />
+                <div>
+                    <label htmlFor="poll-question-field" className="textarea-label">
+                        Vraag *
+                    </label>
+                    <textarea
+                        name="question"
+                        id="poll-question-field"
+                        value={formState.question}
+                        onChange={handleFormChange}
+                        cols={34}
+                        rows={2}
+                        maxLength={70}
+                        required={true}
+                        placeholder="Wie wil doorspelen in de kerstvakantie?"
+                    />
+                </div>
 
                 <FormField
-                    label="Antwoordoptie 1"
+                    label="Antwoordoptie 1 *"
                     type="text"
                     id="poll-option1-field"
                     name="optionOne"
@@ -107,7 +108,7 @@ function NewPoll() {
                     required={true}
                 />
                 <FormField
-                    label="Antwoordoptie 2"
+                    label="Antwoordoptie 2 *"
                     type="text"
                     id="poll-option2-field"
                     name="optionTwo"
@@ -118,18 +119,18 @@ function NewPoll() {
                 />
                 <Button
                     type="submit"
-                    text={isLoading ? "Verzenden...": "Peiling aanmaken"}
+                    text={isLoading ? "Verzenden..." : "Peiling aanmaken"}
                     disabled={isLoading}
                 />
             </form>
             {isSubmitted && (
                 <div className="poll-success-section">
-                <p className="poll-success-message">
-                    Bedankt! Je peiling is aangemaakt.
-                </p>
-                <p>
-                    Klik <Link className="polls-link" to="/peilingen">hier</Link> om naar het overzicht te gaan.
-                </p>
+                    <p className="poll-success-message">
+                        Bedankt! Je peiling is aangemaakt.
+                    </p>
+                    <p>
+                        Klik <Link className="polls-link" to="/peilingen">hier</Link> om naar het overzicht te gaan.
+                    </p>
                 </div>
             )}
 

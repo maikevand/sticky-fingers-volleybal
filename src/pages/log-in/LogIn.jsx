@@ -57,8 +57,7 @@ function LogIn() {
             setFormState(initialFormState);
             setIsSubmitted(true);
             setErrorMessage("");
-        } catch (error) {
-            console.error(error);
+        } catch {
             setIsSubmitted(false);
             setErrorMessage("Er ging iets mis. Probeer het opnieuw.");
         } finally {

@@ -47,7 +47,7 @@ function Contact() {
         };
 
         try {
-            const response = await axios.post(`${baseUrl}/contactMessages`, messageData,{
+            await axios.post(`${baseUrl}/contactMessages`, messageData, {
                 headers: {
                     "novi-education-project-id": projectId,
                 },
@@ -56,8 +56,7 @@ function Contact() {
             setFormState(initialFormState);
             setIsSubmitted(true);
             setErrorMessage("");
-        } catch (error) {
-            console.error(error);
+        } catch {
             setIsSubmitted(false);
             setErrorMessage("Er ging iets mis bij het verzenden. Probeer het opnieuw.");
         } finally {

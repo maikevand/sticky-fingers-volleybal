@@ -9,12 +9,21 @@
     flex-direction: column;
 }
 
+/* Tablets */
+@media screen and (min-width: 768px) {
+    .profile-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.profile-page {
-        background-image: url("../../assets/backgrounds/desktop-checklist-left.png");
+        background-image: url("../../assets/backgrounds/desktop-checklist-left.webp");
         background-size: cover;
-        background-position: center 30%;
+        background-position: left 30%;
     }
 
     .profile-page {
@@ -23,7 +32,7 @@
         align-items: flex-start;
     }
 
-    .profile-page .page-content  {
+    .profile-page .page-content {
         display: flex;
         flex-direction: column;
         flex-grow: 1;

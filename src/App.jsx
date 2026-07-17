@@ -1,7 +1,6 @@
-import './App.css';
-import {Routes, Route, Navigate} from 'react-router-dom';
+import {Routes, Route, Navigate} from "react-router-dom";
 import Navigation from "./components/navigation/Navigation.jsx";
-import Home from './pages/home/Home.jsx';
+import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
 import Contact from "./pages/contact/Contact.jsx"
 import Members from "./pages/members/Members.jsx"
@@ -26,7 +25,9 @@ function App() {
 
     return (
         <div className="page-layout">
-            <Navigation/>
+            <header>
+                <Navigation/>
+            </header>
             <main className="content-layout">
                 <Routes>
                     <Route path="/" element={<Home/>}/>

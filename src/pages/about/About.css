@@ -2,16 +2,25 @@
     align-self: center;
 }
 
+/* Tablets */
+@media screen and (min-width: 768px) {
+    .about-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.about-page {
         background-image: linear-gradient(
                 to right,
-                rgba(255, 255, 255, 0.18) 0%,
-                rgba(190, 195, 205, 0.28) 55%,
-                rgba(120, 125, 140, 0.45) 100%
+                rgba(105, 130, 165, 0.22) 0%,
+                rgba(75, 105, 145, 0.28) 55%,
+                rgba(45, 60, 95, 0.42) 100%
         ),
-        url("../../assets/backgrounds/desktop-volleyball-background-with-clublogo.png");
+        url("../../assets/backgrounds/desktop-volleyball-background-with-clublogo.webp");
         background-size: cover;
         background-position: center;
     }
@@ -19,5 +28,9 @@
     .about-page .page-content {
         margin-left: 15%;
         margin-top: 8rem;
+    }
+
+    .about-page p {
+        line-height: 1.4;
     }
 }

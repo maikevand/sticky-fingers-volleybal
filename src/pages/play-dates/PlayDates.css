@@ -51,12 +51,21 @@
     text-align: center;
 }
 
+/* Tablets */
+@media screen and (min-width: 768px) {
+    .play-dates-page .page-content {
+        display: flex;
+        max-width: 45rem;
+        margin: 4rem auto;
+    }
+}
+
 /* Kleine computerschermen */
 @media screen and (min-width: 992px) {
     .page-background.play-dates-page {
-        background-image: url("../../assets/backgrounds/desktop-dates.png");
+        background-image: url("../../assets/backgrounds/desktop-dates.webp");
         background-size: cover;
-        background-position: center 30%;
+        background-position: right 30%;
     }
 
     .play-dates-page {
@@ -65,7 +74,7 @@
         align-items: flex-start;
     }
 
-    .play-dates-page .page-content  {
+    .play-dates-page .page-content {
         margin-top: 4rem;
     }
 }
